@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Hexo • Posts by &#34;ps3&#34; tag</title>
+        <link>http://example.com</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 15 Jun 2020 11:37:51 +0800</pubDate>
+        <lastBuildDate>Mon, 15 Jun 2020 11:37:51 +0800</lastBuildDate>
+        <category>PS3</category>
+        <category>Games</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2020/06/15/markdown%E6%B5%8B%E8%AF%95/</guid>
+            <title>测试</title>
+            <link>http://example.com/2020/06/15/markdown%E6%B5%8B%E8%AF%95/</link>
+            <category>PS3</category>
+            <category>Games</category>
+            <pubDate>Mon, 15 Jun 2020 11:37:51 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;这是我到哪都不会打哪部分凡开放空间按看吧&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
