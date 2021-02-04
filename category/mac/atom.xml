@@ -1,19 +1,18 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://example.com</id>
-    <title>Hexo • Posts by &#34;mac&#34; category</title>
-    <link href="http://example.com" />
+    <id>http://blog.mengcodes.com</id>
+    <title>筱何仔 • Posts by &#34;mac&#34; category</title>
+    <link href="http://blog.mengcodes.com" />
     <updated>2020-06-18T11:10:16.000Z</updated>
     <category term="PS3" />
     <category term="Games" />
     <entry>
-        <id>http://example.com/2020/06/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/</id>
-        <title>mac</title>
-        <link rel="alternate" href="http://example.com/2020/06/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-        <content type="html">&lt;h1 id=&#34;hexo博客添加百度统计&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hexo博客添加百度统计&#34;&gt;#&lt;/a&gt; Hexo 博客添加百度统计&lt;/h1&gt;
+        <id>http://blog.mengcodes.com/mac/2020/06/1/</id>
+        <title>Hexo博客添加百度统计</title>
+        <link rel="alternate" href="http://blog.mengcodes.com/mac/2020/06/1/"/>
+        <content type="html">&lt;h1 id=&#34;hexo博客添加百度统计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo博客添加百度统计&#34;&gt;#&lt;/a&gt; Hexo 博客添加百度统计&lt;/h1&gt;
 &lt;p&gt;百度统计是干什么的？&lt;/p&gt;
-&lt;h4 id=&#34;统计点击进来的量-停留时间-跳出率-这是从sem同事那里听来的&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#统计点击进来的量-停留时间-跳出率-这是从sem同事那里听来的&#34;&gt;#&lt;/a&gt; 统计点击进来的量  停留时间 跳出率 （这是从 SEM 同事那里听来的）&lt;/h4&gt;
-&lt;h6 id=&#34;其实最主要还是用来装逼&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#其实最主要还是用来装逼&#34;&gt;#&lt;/a&gt; 其实最主要还是用来装逼&lt;/h6&gt;
+&lt;h4 id=&#34;统计点击进来的量-停留时间-跳出率-这是从sem同事那里听来的&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#统计点击进来的量-停留时间-跳出率-这是从sem同事那里听来的&#34;&gt;#&lt;/a&gt; 统计点击进来的量  停留时间 跳出率 （这是从 SEM 同事那里听来的）&lt;/h4&gt;
 </content>
         <updated>2020-06-18T11:10:16.000Z</updated>
     </entry>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>Hexo • Posts by &#34;games&#34; category</title>
-        <link>http://example.com</link>
+        <title>筱何仔 • Posts by &#34;笔记&#34; category</title>
+        <link>http://blog.mengcodes.com</link>
         <description></description>
         <language>zh-CN</language>
         <pubDate>Mon, 15 Jun 2020 11:37:51 +0800</pubDate>
@@ -10,13 +10,13 @@
         <category>PS3</category>
         <category>Games</category>
         <item>
-            <guid isPermalink="true">http://example.com/2020/06/15/markdown%E6%B5%8B%E8%AF%95/</guid>
+            <guid isPermalink="true">http://blog.mengcodes.com/notes/2020/06/2/</guid>
             <title>测试</title>
-            <link>http://example.com/2020/06/15/markdown%E6%B5%8B%E8%AF%95/</link>
+            <link>http://blog.mengcodes.com/notes/2020/06/2/</link>
             <category>PS3</category>
             <category>Games</category>
             <pubDate>Mon, 15 Jun 2020 11:37:51 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;这是我到哪都不会打哪部分凡开放空间按看吧&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;郭有才&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
