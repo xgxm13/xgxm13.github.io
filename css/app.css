@@ -1382,6 +1382,9 @@ textarea {
   line-height: 0.75em;
   vertical-align: -0.0667em;
 }
+.fancybox img {
+  width: 300px;
+}
 .table-container {
   overflow: auto;
 }
