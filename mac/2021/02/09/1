@@ -117,12 +117,12 @@ mengcodes = 筱何仔 = 萌's 代码</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
         </ul>
       </div>
     </header>
@@ -248,19 +248,11 @@ mengcodes = 筱何仔 = 萌's 代码</title>
 
 <div class="post-nav">
     <div class="item left">
-      
-
-  <a href="/Mac/2020/06/18/1" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxp31goj20zk0m8qv5.jpg" title="Hexo博客添加百度统计">
-  <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Mac</span>
-  <h3>Hexo博客添加百度统计</h3>
-  </a>
-
     </div>
     <div class="item right">
       
 
-  <a href="/Mac/2021/02/09/2" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclhnx9glj20zk0m8npd.jpg" title="Mac Permission denied的解决方法">
+  <a href="/Mac/2021/02/09/2" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxfdlttj20zk0m8npd.jpg" title="Mac Permission denied的解决方法">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Mac</span>
   <h3>Mac Permission denied的解决方法</h3>
@@ -285,7 +277,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/Mac/2020/06/18/1" rel="bookmark" title="Hexo博客添加百度统计">Hexo博客添加百度统计</a></li><li class="active"><a href="/Mac/2021/02/09/1" rel="bookmark" title="Mac查看ssh公钥">Mac查看ssh公钥</a></li><li><a href="/Mac/2021/02/09/2" rel="bookmark" title="Mac Permission denied的解决方法">Mac Permission denied的解决方法</a></li>
+          <li class="active"><a href="/Mac/2021/02/09/1" rel="bookmark" title="Mac查看ssh公钥">Mac查看ssh公钥</a></li><li><a href="/Mac/2021/02/09/2" rel="bookmark" title="Mac Permission denied的解决方法">Mac Permission denied的解决方法</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -305,13 +297,13 @@ mengcodes = 筱何仔 = 萌's 代码</title>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">1</span>
+        <span class="count">2</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">1</span>
+        <span class="count">2</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -375,12 +367,10 @@ mengcodes = 筱何仔 = 萌's 代码</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/Mac/2020/06/18/1" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/Mac/2021/02/09/2" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -405,7 +395,17 @@ mengcodes = 筱何仔 = 萌's 代码</title>
 <a href="/categories/Mac/" title="分类于 Mac">Mac</a>
 </div>
 
-    <span><a href="/Mac/2020/06/18/1" title="Hexo博客添加百度统计">Hexo博客添加百度统计</a></span>
+    <span><a href="/Mac/2021/02/09/2" title="Mac Permission denied的解决方法">Mac Permission denied的解决方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/Vue/2021/02/09/3" title="一些Vue公共方法">一些Vue公共方法</a></span>
   </li>
 
       
@@ -416,16 +416,6 @@ mengcodes = 筱何仔 = 萌's 代码</title>
 </div>
 
     <span><a href="/Mac/2021/02/09/1" title="Mac查看ssh公钥">Mac查看ssh公钥</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Mac/" title="分类于 Mac">Mac</a>
-</div>
-
-    <span><a href="/Mac/2021/02/09/2" title="Mac Permission denied的解决方法">Mac Permission denied的解决方法</a></span>
   </li>
 
   </ul>
