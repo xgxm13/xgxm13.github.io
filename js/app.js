@@ -2369,7 +2369,7 @@ function createCircle(x,y) {
   var p = {};
   p.x = x;
   p.y = y;
-  p.color = '#FFF';
+  p.color = '#ff9999';
   p.radius = 0.1;
   p.alpha = .5;
   p.lineWidth = 6;
