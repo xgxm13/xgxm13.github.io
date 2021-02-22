@@ -52,7 +52,7 @@
   --grey-2-a0: rgba(247,247,247,0);
   --color-pink-light: #ffe6fa;
   --color-cyan-light: #e3fdf5;
-  --color-red: #e9546b;
+  --color-red: #f99;
   --color-pink: #ed6ea0;
   --color-orange: #ec8c69;
   --color-yellow: #eab700;
@@ -61,8 +61,8 @@
   --color-blue: #38a1db;
   --color-purple: #9d5b8b;
   --color-grey: #869194;
-  --color-red-a1: rgba(233,84,107,0.1);
-  --color-red-a3: rgba(233,84,107,0.3);
+  --color-red-a1: rgba(255,153,153,0.1);
+  --color-red-a3: rgba(255,153,153,0.3);
   --color-pink-a3: rgba(237,110,160,0.3);
   --color-pink-light-a3: rgba(255,230,250,0.3);
   --color-pink-light-a5: rgba(255,230,250,0.5);
@@ -123,7 +123,7 @@
   --grey-2-a0: rgba(54,54,54,0);
   --color-pink-light: #322d31;
   --color-cyan-light: #2d3230;
-  --color-red: rgba(237,118,137,0.9);
+  --color-red: rgba(255,173,173,0.9);
   --color-pink: rgba(241,139,179,0.8);
   --color-orange: rgba(240,163,135,0.8);
   --color-yellow: #ffe175;

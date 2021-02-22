@@ -1,17 +1,31 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://blog.mengcodes.com</id>
+    <id>https://blog.mengcodes.com</id>
     <title>筱何仔 • Posts by &#34;vue&#34; tag</title>
-    <link href="http://blog.mengcodes.com" />
-    <updated>2021-02-09T09:10:33.000Z</updated>
+    <link href="https://blog.mengcodes.com" />
+    <updated>2021-02-22T07:54:46.000Z</updated>
     <category term="Mac" />
-    <category term="微信小程序" />
+    <category term="笔记" />
     <category term="前端" />
     <category term="Vue" />
+    <category term="微信小程序" />
     <entry>
-        <id>http://blog.mengcodes.com/Web/Vue/2021/02/09/3/</id>
+        <id>https://blog.mengcodes.com/Web/Vue/2021/02/22/1/</id>
+        <title>Vuex入门</title>
+        <link rel="alternate" href="https://blog.mengcodes.com/Web/Vue/2021/02/22/1/"/>
+        <content type="html">&lt;p&gt;一个小例子掌握 Vuex 入门知识&lt;br /&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;br /&gt;
+ 未完待续&lt;br /&gt;
+&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="前端" />
+        <category term="Vue" />
+        <updated>2021-02-22T07:54:46.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://blog.mengcodes.com/Web/Vue/2021/02/09/3/</id>
         <title>一些Vue公共方法</title>
-        <link rel="alternate" href="http://blog.mengcodes.com/Web/Vue/2021/02/09/3/"/>
+        <link rel="alternate" href="https://blog.mengcodes.com/Web/Vue/2021/02/09/3/"/>
         <content type="html">&lt;p&gt;一些 Vue 公共方法&lt;br /&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;common-functions&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#common-functions&#34;&gt;#&lt;/a&gt; Common Functions&lt;/h1&gt;

@@ -2,19 +2,20 @@
 <rss version="2.0">
     <channel>
         <title>筱何仔 • Posts by &#34;mac&#34; category</title>
-        <link>http://blog.mengcodes.com</link>
+        <link>https://blog.mengcodes.com</link>
         <description></description>
         <language>zh-CN</language>
         <pubDate>Tue, 09 Feb 2021 15:07:57 +0800</pubDate>
         <lastBuildDate>Tue, 09 Feb 2021 15:07:57 +0800</lastBuildDate>
         <category>Mac</category>
-        <category>微信小程序</category>
+        <category>笔记</category>
         <category>前端</category>
         <category>Vue</category>
+        <category>微信小程序</category>
         <item>
-            <guid isPermalink="true">http://blog.mengcodes.com/Mac/2021/02/09/2/</guid>
+            <guid isPermalink="true">https://blog.mengcodes.com/Mac/2021/02/09/2/</guid>
             <title>Mac Permission denied的解决方法</title>
-            <link>http://blog.mengcodes.com/Mac/2021/02/09/2/</link>
+            <link>https://blog.mengcodes.com/Mac/2021/02/09/2/</link>
             <category>Mac</category>
             <pubDate>Tue, 09 Feb 2021 15:07:57 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Mac Permission denied 的解决方法&lt;br /&gt;
@@ -26,9 +27,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://blog.mengcodes.com/Mac/2021/02/09/1/</guid>
+            <guid isPermalink="true">https://blog.mengcodes.com/Mac/2021/02/09/1/</guid>
             <title>Mac查看ssh公钥</title>
-            <link>http://blog.mengcodes.com/Mac/2021/02/09/1/</link>
+            <link>https://blog.mengcodes.com/Mac/2021/02/09/1/</link>
             <category>Mac</category>
             <pubDate>Tue, 09 Feb 2021 14:23:52 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Mac .ssh 文件在哪里查找？&lt;br /&gt;
