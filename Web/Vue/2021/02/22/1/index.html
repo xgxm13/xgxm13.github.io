@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="前端,Vue" />
+  <meta name="keywords" content="前端,Vue,Vuex" />
 
 
 <link rel="canonical" href="https://blog.mengcodes.com/Web/Vue/2021/02/22/1/">
@@ -32,7 +32,7 @@
 
 
   <title>
-Vuex入门 - Vue - 前端 |
+Vuex入门及使用 - Vue - 前端 |
 mengcodes = 筱何仔 = 萌's 代码</title>
 <meta name="generator" content="Hexo 5.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">Vuex入门
+  <h1 itemprop="name headline">Vuex入门及使用
   </h1>
   
 <div class="meta">
@@ -76,7 +76,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>24</span>
+    <span>3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -84,7 +84,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>1 分钟</span>
+    <span>3 分钟</span>
   </span>
 </div>
 
@@ -118,12 +118,12 @@ mengcodes = 筱何仔 = 萌's 代码</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
         </ul>
       </div>
     </header>
@@ -173,13 +173,69 @@ mengcodes = 筱何仔 = 萌's 代码</title>
     
 
     <p>一个小例子掌握 Vuex 入门知识<br />
-<a id="more"></a><br />
- 未完待续<br />
+<a id="more"></a></p>
+<p>自己也是通过学习视频才了解的，前排感谢 B 站 up 主 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWg3NDExTjdiZz9wPTE="> 云繁 EST </span></p>
+<h1 id="vuex概述"><a class="anchor" href="#vuex概述">#</a> Vuex 概述</h1>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。Vuex 是实现组件全局状态（数据）管理的一种机制，可以方便地实现组件之间数据的共享。</p>
+<h1 id="vuex的基本使用"><a class="anchor" href="#vuex的基本使用">#</a> Vuex 的基本使用</h1>
+<h2 id="1安装vuex依赖包"><a class="anchor" href="#1安装vuex依赖包">#</a> 1. 安装 vuex 依赖包</h2>
+<p><figure class="highlight js"><figcaption><span>安装vuex依赖包</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure></p>
+<h2 id="2导入vuex包"><a class="anchor" href="#2导入vuex包">#</a> 2. 导入 Vuex 包</h2>
+<p><figure class="highlight js"><figcaption><span>导入</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3创建store对象"><a class="anchor" href="#3创建store对象">#</a> 3. 创建 store 对象</h2>
+<p><figure class="highlight js"><figcaption><span>创建store对象</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.store(&#123;</span><br><span class="line">  <span class="comment">// state 中存放的就是全局共享的数据</span></span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="4将store对象挂载到-vue-实例中"><a class="anchor" href="#4将store对象挂载到-vue-实例中">#</a> 4. 将 store 对象挂载到 vue 实例中</h2>
+<p><figure class="highlight js"><figcaption><span>将store对象挂载到 vue 实例中</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  router,</span><br><span class="line">  <span class="comment">// 将创建的共享数据对象，挂载到Vue实例中</span></span><br><span class="line">  <span class="comment">// 所有组件中，都可以直接从 store 中获取全局的数据</span></span><br><span class="line">  store,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure><br />
+ 我们可以通过一个小例子来熟悉 vuex 的用法：<span class="blue">父组件 App.vue 上引入两个子组件，一个加法操作的 add.vue 子组件，一个减法操作的 minus.vue 子组件。父组件引入并渲染 Vuex 中的 全局共享的数据 count，通过加减法的运算来了解 count 发生的变化。</span></p>
+<ul>
+<li>我们把两个组件分隔开 准备工作完成后的 App.vue 代码如下：<br />
+<figure class="highlight js"><figcaption><span>代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;Add&gt;&lt;/Add&gt;</span><br><span class="line">    &lt;p&gt;--------------------------&lt;/p&gt;</span><br><span class="line">    &lt;Minus&gt;&lt;/Minus&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> Add <span class="keyword">from</span> <span class="string">&#x27;./components/add&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Minus <span class="keyword">from</span> <span class="string">&#x27;./components/minus&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    Add,</span><br><span class="line">    Minus</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="vuex的核心概念-state"><a class="anchor" href="#vuex的核心概念-state">#</a> Vuex 的核心概念 State</h1>
+<p>State 提供唯一的公共数据源，所有共享的数据都要统一放到 Store 的 State 中进行存储。</p>
+<ul>
+<li>我们需要在 add 和 minus 组件中 都能访问到 当前最新的 count 值 有如下两种方式</li>
+</ul>
+<h2 id="方法一thisstorestate全局数据名称"><a class="anchor" href="#方法一thisstorestate全局数据名称">#</a> 方法一：this.$store.state. 全局数据名称</h2>
+<ul>
+<li>在 add 组件中的代码<br />
+ <figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;当前count值为：&#123;&#123;$store.state.count&#125;&#125;&lt;/h3&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="方法二1从vuex中按需引入-mapstate-对象-2将全局数据映射为当前组件的计算属性"><a class="anchor" href="#方法二1从vuex中按需引入-mapstate-对象-2将全局数据映射为当前组件的计算属性">#</a> 方法二：①从 vuex 中按需引入 mapState 对象 ②将全局数据映射为当前组件的计算属性</h2>
+<ul>
+<li>在 minus 组件中的代码<br />
+ <figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从vuex中按需引入 mapState 对象</span></span><br><span class="line"><span class="keyword">import</span> &#123; mapState &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="comment">// 将全局数据映射为当前组件的计算属性</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  ...mapState([<span class="string">&#x27;count&#x27;</span>])</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 页面代码</span></span><br><span class="line">&lt;h3&gt;当前count值为：&#123;&#123;count&#125;&#125;&lt;/h3&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="vuex的核心概念-getter"><a class="anchor" href="#vuex的核心概念-getter">#</a> Vuex 的核心概念 Getter</h1>
+<p>Getter 用于对 Store 中的数据进行加工处理形成新的数据<br />
+① Getter 可以对 Store 中已经存在的数据加工处理形成新的数据，类似 Vue 的计算属性<br />
+② Store 中数据发生变化，Getter 的数据也会跟着变化</p>
+<ul>
+<li>我们可以在 store 的 state 中新加一个 doubleCount 返回当前 count 数值的 2 倍<br />
+ <figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    doubleCount (state) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`看我翻倍----  <span class="subst">$&#123;state.count * <span class="number">2</span>&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>Getter 相当于计算属性，使用方法与 state 中的数据一样<br />
+ <figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在add组件中的代码</span></span><br><span class="line">&lt;h3&gt;当前doubleCount值为：&#123;&#123;$store.state.doubleCount&#125;&#125;&lt;/h3&gt;</span><br><span class="line"><span class="comment">// 在minus组件中的代码</span></span><br><span class="line"><span class="comment">// 从vuex中按需引入 mapGetters 对象</span></span><br><span class="line"><span class="keyword">import</span> &#123; mapGetters &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="comment">// 将全局数据映射为当前组件的计算属性</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  ...mapGetters([<span class="string">&#x27;doubleCount&#x27;</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="vuex的核心概念-mutation"><a class="anchor" href="#vuex的核心概念-mutation">#</a> Vuex 的核心概念 Mutation</h1>
+<p>Mutation 用于变更 Store 中的数据<br />
+① 只能通过 Mutation 变更 Store 中的数据，不可以直接操作 Store 中的数据<br />
+② 通过这种方式虽然操作稍微繁琐，但是可以集中监控所有公共数据的变化</p>
+<ul>
+<li>我们可以在 add 组件和 minus 组件中添加按钮，动态改变 State 中 count 的值<br />
+ <figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add组件代码</span></span><br><span class="line">&lt;button @click=<span class="string">&quot;add1&quot;</span>&gt; +<span class="number">1</span> &lt;/button&gt;</span><br><span class="line">&lt;button @click=<span class="string">&quot;add2&quot;</span>&gt; +N &lt;/button&gt;</span><br><span class="line">...</span><br><span class="line">methods: &#123;</span><br><span class="line">  add1 () &#123;</span><br><span class="line">    <span class="built_in">this</span>.$store.commit(<span class="string">&#x27;add&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  add2 () &#123;</span><br><span class="line">    <span class="built_in">this</span>.$store.commit(<span class="string">&#x27;add&#x27;</span>, <span class="built_in">this</span>.numN)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// minus组件代码</span></span><br><span class="line"><span class="comment">// 定义 Mutation</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  ...</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    <span class="comment">// 接收的参数 一个是 store里面的state，另一个是我们传的其他数据</span></span><br><span class="line">    add (state, step) &#123;</span><br><span class="line">      <span class="comment">// 如果无参数</span></span><br><span class="line">      step ? state.count += step : state.count++</span><br><span class="line">    &#125;,</span><br><span class="line">    minus (state, step) &#123;</span><br><span class="line">      step ? state.count -= step : state.count--</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br />
+<figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js codes</span><br></pre></td></tr></table></figure><br />
+<figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js codes</span><br></pre></td></tr></table></figure><br />
+<figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js codes</span><br></pre></td></tr></table></figure><br />
+<figure class="highlight js"><figcaption><span>codes</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr />
+<p>未完待续<br />
 <span class="label danger">❤️筱何仔</span></p>
 
       <div class="tags">
           <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
           <a href="/tags/Vue/" rel="tag"><i class="ic i-tag"></i> Vue</a>
+          <a href="/tags/Vuex/" rel="tag"><i class="ic i-tag"></i> Vuex</a>
       </div>
   </div>
 
@@ -191,9 +247,9 @@ mengcodes = 筱何仔 = 萌's 代码</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2021-02-22 17:56:11" itemprop="dateModified" datetime="2021-02-22T17:56:11+08:00">2021-02-22</time>
+    <time title="修改时间：2021-03-03 18:45:00" itemprop="dateModified" datetime="2021-03-03T18:45:00+08:00">2021-03-03</time>
   </span>
-  <span id="Web/Vue/2021/02/22/1/" class="item leancloud_visitors" data-flag-title="Vuex入门" title="阅读次数">
+  <span id="Web/Vue/2021/02/22/1/" class="item leancloud_visitors" data-flag-title="Vuex入门及使用" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -231,7 +287,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://blog.mengcodes.com/Web/Vue/2021/02/22/1/" title="Vuex入门">https://blog.mengcodes.com/Web/Vue/2021/02/22/1/</a>
+    <a href="https://blog.mengcodes.com/Web/Vue/2021/02/22/1/" title="Vuex入门及使用">https://blog.mengcodes.com/Web/Vue/2021/02/22/1/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -250,7 +306,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
     <div class="item left">
       
 
-  <a href="/Web/Wechat/2021/02/18/1/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4wqtg4j20zk0m8x6p.jpg" title="微信小程序swiper高度自适应">
+  <a href="/Web/Wechat/2021/02/18/1/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicliwyw55j20zk0m8hdt.jpg" title="微信小程序swiper高度自适应">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 微信小程序</span>
   <h3>微信小程序swiper高度自适应</h3>
@@ -260,7 +316,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
     <div class="item right">
       
 
-  <a href="/Notes/2021/02/22/2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu7txpzj20zk0m81kx.jpg" title="Nvm安装及日常使用">
+  <a href="/Notes/2021/02/22/2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewf5l51j20zk0m8b29.jpg" title="Nvm安装及日常使用">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 笔记</span>
   <h3>Nvm安装及日常使用</h3>
@@ -282,10 +338,11 @@ mengcodes = 筱何仔 = 萌's 代码</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vuex%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> Vuex 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vuex%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> Vuex 的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E5%AE%89%E8%A3%85vuex%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-number">2.1.</span> <span class="toc-text"> 1. 安装 vuex 依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E5%AF%BC%E5%85%A5vuex%E5%8C%85"><span class="toc-number">2.2.</span> <span class="toc-text"> 2. 导入 Vuex 包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E5%88%9B%E5%BB%BAstore%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.3.</span> <span class="toc-text"> 3. 创建 store 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E5%B0%86store%E5%AF%B9%E8%B1%A1%E6%8C%82%E8%BD%BD%E5%88%B0-vue-%E5%AE%9E%E4%BE%8B%E4%B8%AD"><span class="toc-number">2.4.</span> <span class="toc-text"> 4. 将 store 对象挂载到 vue 实例中</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vuex%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-state"><span class="toc-number">3.</span> <span class="toc-text"> Vuex 的核心概念 State</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80thisstorestate%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE%E5%90%8D%E7%A7%B0"><span class="toc-number">3.1.</span> <span class="toc-text"> 方法一：this.$store.state. 全局数据名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C1%E4%BB%8Evuex%E4%B8%AD%E6%8C%89%E9%9C%80%E5%BC%95%E5%85%A5-mapstate-%E5%AF%B9%E8%B1%A1-2%E5%B0%86%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE%E6%98%A0%E5%B0%84%E4%B8%BA%E5%BD%93%E5%89%8D%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text"> 方法二：①从 vuex 中按需引入 mapState 对象 ②将全局数据映射为当前组件的计算属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vuex%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-getter"><span class="toc-number">4.</span> <span class="toc-text"> Vuex 的核心概念 Getter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vuex%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-mutation"><span class="toc-number">5.</span> <span class="toc-text"> Vuex 的核心概念 Mutation</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/Web/Vue/2021/02/09/3/" rel="bookmark" title="一些Vue公共方法">一些Vue公共方法</a></li><li class="active"><a href="/Web/Vue/2021/02/22/1/" rel="bookmark" title="Vuex入门">Vuex入门</a></li>
+          <li><a href="/Web/Vue/2021/02/09/3/" rel="bookmark" title="一些Vue公共方法">一些Vue公共方法</a></li><li class="active"><a href="/Web/Vue/2021/02/22/1/" rel="bookmark" title="Vuex入门及使用">Vuex入门及使用</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -311,7 +368,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">5</span>
+        <span class="count">6</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -402,12 +459,10 @@ mengcodes = 筱何仔 = 萌's 代码</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Web/" title="分类于 前端">前端</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Web/Wechat/" title="分类于 微信小程序">微信小程序</a>
+<a href="/categories/Mac/" title="分类于 Mac">Mac</a>
 </div>
 
-    <span><a href="/Web/Wechat/2021/02/18/1/" title="微信小程序swiper高度自适应">微信小程序swiper高度自适应</a></span>
+    <span><a href="/Mac/2021/02/09/2/" title="Mac Permission denied的解决方法">Mac Permission denied的解决方法</a></span>
   </li>
 
       
@@ -419,7 +474,19 @@ mengcodes = 筱何仔 = 萌's 代码</title>
 <a href="/categories/Web/Vue/" title="分类于 Vue">Vue</a>
 </div>
 
-    <span><a href="/Web/Vue/2021/02/09/3/" title="一些Vue公共方法">一些Vue公共方法</a></span>
+    <span><a href="/Web/Vue/2021/02/22/1/" title="Vuex入门及使用">Vuex入门及使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Web/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Web/Wechat/" title="分类于 微信小程序">微信小程序</a>
+</div>
+
+    <span><a href="/Web/Wechat/2021/02/18/1/" title="微信小程序swiper高度自适应">微信小程序swiper高度自适应</a></span>
   </li>
 
       
@@ -441,17 +508,7 @@ mengcodes = 筱何仔 = 萌's 代码</title>
 <a href="/categories/Web/Vue/" title="分类于 Vue">Vue</a>
 </div>
 
-    <span><a href="/Web/Vue/2021/02/22/1/" title="Vuex入门">Vuex入门</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Mac/" title="分类于 Mac">Mac</a>
-</div>
-
-    <span><a href="/Mac/2021/02/09/2/" title="Mac Permission denied的解决方法">Mac Permission denied的解决方法</a></span>
+    <span><a href="/Web/Vue/2021/02/09/3/" title="一些Vue公共方法">一些Vue公共方法</a></span>
   </li>
 
       
@@ -487,13 +544,13 @@ mengcodes = 筱何仔 = 萌's 代码</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">4k 字</span>
+    <span title="站点总字数">7k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">3 分钟</span>
+    <span title="站点阅读时长">6 分钟</span>
   </div>
   
   <div>
