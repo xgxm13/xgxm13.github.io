@@ -1,0 +1,28 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "筱何仔 • All posts by \"mac\" category",
+    "description": "",
+    "home_page_url": "https://blog.mengcodes.com",
+    "items": [
+        {
+            "id": "https://blog.mengcodes.com/Mac/2021/02/09/2/",
+            "url": "https://blog.mengcodes.com/Mac/2021/02/09/2/",
+            "title": "Mac Permission denied的解决方法",
+            "date_published": "2021-02-09T07:07:57.000Z",
+            "content_html": "<p>Mac Permission denied 的解决方法<br />\n<a id=\"more\"></a><br />\n 这是因为<span class=\"red\">当前文件夹</span>的权限不够造成的，有一个比较管用的办法，一刀切解决问题<br />\n<span class=\"red\">当前目录</span>下打开<span class=\"red\">终端</span><br />\n <figure class=\"highlight java\"><figcaption><span>示例</span></figcaption><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">sudo chmod -R <span class=\"number\">777</span> *</span><br><span class=\"line\"><span class=\"comment\">// 表示给这个项目的所有文件夹和文件夹下的文件都授予读写和可执行权限。</span></span><br></pre></td></tr></table></figure><br />\n<span class=\"label danger\">❤️筱何仔</span></p>\n",
+            "tags": [
+                "Mac"
+            ]
+        },
+        {
+            "id": "https://blog.mengcodes.com/Mac/2021/02/09/1/",
+            "url": "https://blog.mengcodes.com/Mac/2021/02/09/1/",
+            "title": "Mac查看ssh公钥",
+            "date_published": "2021-02-09T06:23:52.000Z",
+            "content_html": "<p>Mac .ssh 文件在哪里查找？<br />\n<a id=\"more\"></a><br />\n 方法 1：桌面 <span class=\"green\">--&gt;</span> 前往 <span class=\"green\">--&gt;</span> 前往文件夹 <span class=\"green\">--&gt;</span> 输入<span class=\"red\">～/.ssh</span><br />\n 方法 2、快捷操作： <span class=\"kbd red\">shift</span> + <span class=\"kbd red\">command</span> + <span class=\"kbd red\">G</span> -&gt; 输入<span class=\"red\">～/.ssh</span><br />\n 如图 (点击可放大)：<br />\n<img data-src=\"https://i.loli.net/2021/02/09/fhRrmbQAFDtnVlX.jpg\" alt=\"example1.jpg\" /><br />\n<img data-src=\"https://i.loli.net/2021/02/09/WJy1vzZuXYRClDj.jpg\" alt=\"example2.jpg\" /><br />\n<img data-src=\"https://i.loli.net/2021/02/09/J7sE4t2IjV9H8Yf.jpg\" alt=\"example3.jpg\" /><br />\n<span class=\"label danger\">❤️筱何仔</span></p>\n",
+            "tags": [
+                "Mac"
+            ]
+        }
+    ]
+}

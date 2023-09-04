@@ -1,0 +1,723 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="筱何仔" href="https://blog.mengcodes.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="筱何仔" href="https://blog.mengcodes.com/atom.xml" />
+<link rel="alternate" type="application/json" title="筱何仔" href="https://blog.mengcodes.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="前端" />
+
+
+<link rel="canonical" href="https://blog.mengcodes.com/Web/2023/07/12/1/">
+
+
+
+  <title>
+JS宏任务和微任务 - 前端 |
+mengcodes = 筱何仔 = 萌's 代码</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JS宏任务和微任务
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-12 17:46:41">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-12T17:46:41+08:00">2023-07-12</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>4.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>4 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">mengcodes</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+  
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://wx3.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://wx3.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://wx3.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://wx3.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://wx3.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://wx3.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Web/" itemprop="item" rel="index" title="分类于 前端"><span itemprop="name">前端</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://blog.mengcodes.com/Web/2023/07/12/1/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="筱何仔">
+    <meta itemprop="description" content="萌's 代码, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="筱何仔">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>JS 宏任务和微任务</p>
+<ul>
+<li>前排感谢 CSDN 的 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21yc3poYW5nMTExL2FydGljbGUvZGV0YWlscy8xMjY4NjE2Njk="> 奔波儿灞... </span><br />
+<a id="more"></a></li>
+</ul>
+<h1 id="什么是微任务和宏任务"><a class="anchor" href="#什么是微任务和宏任务">#</a> 什么是微任务和宏任务</h1>
+<ul>
+<li>首先，我们要先了解下 Js 。Js 是一种单线程语言，简单的说就是：只有一条通道，那么在任务多的情况下，就会出现拥挤的情况，这种情况下就产生了 ‘多线程’ ，但是这种 “多线程” 是通过单线程模仿的，也就是假的。那么就产生了同步任务和异步任务。</li>
+</ul>
+<h1 id="js为什么要区分微任务和宏任务"><a class="anchor" href="#js为什么要区分微任务和宏任务">#</a> JS 为什么要区分微任务和宏任务</h1>
+<ul>
+<li>（1）js 是单线程的，但是分同步异步</li>
+<li>（2）微任务和宏任务皆为异步任务，它们都属于一个队列</li>
+<li>（3）宏任务一般是：script、setTimeout、setInterval、postMessage、MessageChannel、setImmediate (Node.js 环境)</li>
+<li>（4）微任务：Promise.then、Object.observe、MutationObserver、process.nextTick (Node.js 环境)</li>
+<li>（5）先执行同步再执行异步，异步遇到微任务，先执行微任务，执行完后如果没有微任务，就执行下一个宏任务，如果有微任务，就按顺序一个一个执行微任务</li>
+</ul>
+<h1 id="微任务和宏任务有哪些"><a class="anchor" href="#微任务和宏任务有哪些">#</a> 微任务和宏任务有哪些</h1>
+<ul>
+<li>
+<p>（1）宏任务一般是：script、setTimeout、setInterval、postMessage、MessageChannel、setImmediate (Node.js 环境)</p>
+</li>
+<li>
+<p>（2）微任务：Promise.then、Object.observe、MutationObserver、process.nextTick (Node.js 环境)</p>
+</li>
+</ul>
+<h1 id="微任务和宏任务是怎么执行的"><a class="anchor" href="#微任务和宏任务是怎么执行的">#</a> 微任务和宏任务是怎么执行的？</h1>
+<ul>
+<li>执行顺序：先执行同步代码，遇到异步宏任务则将异步宏任务放入宏任务队列中，遇到异步微任务则将异步微任务放入微任务队列中，当所有同步代码执行完毕后，再将异步微任务从队列中调入主线程执行，微任务执行完毕后再将异步宏任务从队列中调入主线程执行，一直循环直至所有任务执行完毕。</li>
+</ul>
+<p>这里容易产生一个错误的认识：就是微任务先于宏任务执行。实际上是先执行同步任务然后在执行异步任务，异步任务是分宏任务和微任务两种的。</p>
+<h1 id="案例"><a class="anchor" href="#案例">#</a> 案例</h1>
+<h2 id="例1"><a class="anchor" href="#例1">#</a> 例 1</h2>
+<p><figure class="highlight js"><figcaption><span>code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;		    </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;		    </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;); 		</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>输出结果 (鼠标滑过显示内容)<br />
+<span class="spoiler" title="你知道得太多了">2 5 3 4 1</span></li>
+<li>分析</li>
+</ul>
+<div class="note info">
+<pre><code>1.遇到setTimout，异步宏任务，放入宏任务队列中
+2.遇到new Promise，new Promise在实例化的过程中所执行的代码都是同步进行的，所以输出2
+3.Promise.then，异步微任务，将其放入微任务队列中
+4.遇到同步任务console.log(5);输出5；主线程中同步任务执行完
+5.从微任务队列中取出任务到主线程中，输出3、 4，微任务队列为空
+6.从宏任务队列中取出任务到主线程中，输出1，宏任务队列为空
+</code></pre>
+</div>
+<h2 id="例2"><a class="anchor" href="#例2">#</a> 例 2</h2>
+<p><figure class="highlight js"><figcaption><span>code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span>&#123;</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;).then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    resolve();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;).then( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;before timeout&#x27;</span>);</span><br><span class="line">    &#125;).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;also before timeout&#x27;</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line"><span class="comment">//1，2，3，before timeout，also before timeout，4，test;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>输出结果 (鼠标滑过显示内容)<br />
+<span class="spoiler" title="你知道得太多了">1，2，3，before timeout，also before timeout，4，test</span></li>
+<li>分析</li>
+</ul>
+<div class="note info">
+<pre><code>1.遇到setTimeout，异步宏任务，将() =&gt; &#123;console.log(4)&#125;放入宏任务队列中；
+2.遇到new Promise，new Promise在实例化的过程中所执行的代码都是同步进行的，所以输出1；
+3.而Promise.then，异步微任务，将其放入微任务队列中
+4.遇到同步任务console.log(2)，输出2；主线程中同步任务执行完
+5.从微任务队列中取出任务到主线程中，输出3，此微任务中又有微任务，Promise.resolve().then(微任务a).then(微任务b)，将其依次放入微任务队列中；
+6.从微任务队列中取出任务a到主线程中，输出 before timeout；
+7.从微任务队列中取出任务b到主线程中，任务b又注册了一个微任务c，放入微任务队列中；
+8.从微任务队列中取出任务c到主线程中，输出 also before timeout；微任务队列为空
+9.从宏任务队列中取出任务到主线程，此任务中注册了一个微任务d，将其放入微任务队列中，接下来遇到输出4，宏任务队列为空
+10.从微任务队列中取出任务d到主线程 ，输出test，微任务队列为空
+</code></pre>
+</div>
+<h2 id="例3"><a class="anchor" href="#例3">#</a> 例 3</h2>
+<p><figure class="highlight js"><figcaption><span>code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line">p.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>输出结果 (鼠标滑过显示内容)<br />
+<span class="spoiler" title="你知道得太多了">1，3，4，2</span></li>
+<li>分析</li>
+</ul>
+<div class="note info">
+<pre><code>1.遇到同步任务console.log(1);输出1；
+2.遇到setTimeout 异步宏任务，放入宏任务队列中；
+3.遇到 Promise，new Promise在实例化的过程中所执行的代码都是同步进行的，但由于new Promise没有输出事件，所以接着执行遇到.then；
+4.执行.then，异步微任务,被分发到微任务Event Queue中；
+5.遇到同步任务console.log(3);输出3；
+6.主线程中同步任务执行完，从微任务队列中取出任务到主线程中，p.then 输出4,微任务执行完毕，任务队列为空；
+7.开始执行宏任务setTimeout 输出2,宏任务队列为空；
+</code></pre>
+</div>
+<h2 id="例4"><a class="anchor" href="#例4">#</a> 例 4</h2>
+<p><figure class="highlight js"><figcaption><span>code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">        resolve()</span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line">    resolve()</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">6</span>)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">7</span>)</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">8</span>)</span><br><span class="line">        resolve()</span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">9</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10</span>)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>输出结果 (鼠标滑过显示内容)<br />
+<span class="spoiler" title="你知道得太多了">1，5，10，6，2，3，4，7，8，9</span></li>
+<li>分析</li>
+</ul>
+<div class="note info">
+<pre><code>1.遇到同步任务console.log(1);输出1；
+2.遇到setTimeout 异步宏任务，放入宏任务队列中；
+3.遇到 Promise，new Promise在实例化的过程中所执行的代码都是同步进行的，所以输出5，所以接着执行遇到.then；
+4.执行.then，异步微任务,被分发到微任务Event Queue中；
+5.遇到setTimeout，异步宏任务;放入宏任务队列中；
+6.遇到同步任务console.log(10);输出10,主线程中同步任务全部执行完;
+7.从微任务队列中取出任务到主线程中，输出6；
+8.在从宏任务队列中取出任务到主线程中，执行第一个setTimeout，输出2，3，4（在宏任务中执行同步,同步，异步微任务）;
+9.在执行第二个setTimeout，输出7，8，9（和8同理）；
+</code></pre>
+</div>
+<h2 id="例5"><a class="anchor" href="#例5">#</a> 例 5</h2>
+<p><figure class="highlight js"><figcaption><span>code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="number">2</span>)</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>输出结果 (鼠标滑过显示内容)<br />
+<span class="spoiler" title="你知道得太多了">3，2，1</span></li>
+<li>分析</li>
+</ul>
+<div class="note info">
+<pre><code>1.遇到Promise,new Promise在实例化的过程中所执行的代码都是同步进行的,但由于new Promise没有输出事件，所以接着往下执行遇到new Promise没有输出事件再接着往下执行遇到.then,异步微任务,被分发到微任务Event Queue中，再接着 .then 放入微任务
+2.遇到同步任务console.log(3) 输出3，主线程中同步任务执行完；
+3.从微任务队列中取出任务到主线程中，输出2，1，微任务执行完毕，任务队列为空。
+</code></pre>
+</div>
+<h1 id="总结"><a class="anchor" href="#总结">#</a> 总结</h1>
+<div class="note success">
+<p>微任务和宏任务的执行顺序是先执行同步任务，先执行同步后异步，异步分为宏任务和微任务两种，异步遇到微任务先执行微任务，执行完后如果没有微任务，就执行下一个宏任务。</p>
+</div>
+<p><span class="label danger">❤️筱何仔</span></p>
+
+      <div class="tags">
+          <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-08-30 19:47:39" itemprop="dateModified" datetime="2023-08-30T19:47:39+08:00">2023-08-30</time>
+  </span>
+  <span id="Web/2023/07/12/1/" class="item leancloud_visitors" data-flag-title="JS宏任务和微任务" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="筱何仔 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="筱何仔 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>
+    筱何仔
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.mengcodes.com/Web/2023/07/12/1/" title="JS宏任务和微任务">https://blog.mengcodes.com/Web/2023/07/12/1/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Web/Vue/2023/07/12/1/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;wx3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4fomxoj20zk0m8axp.jpg" title="Websocket的使用">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>Websocket的使用</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/notes/2023/08/30/1/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;wx3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipey84bjtj20zk0m8hdt.jpg" title="前端面试题">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>前端面试题</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text"> 什么是微任务和宏任务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8C%BA%E5%88%86%E5%BE%AE%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.</span> <span class="toc-text"> JS 为什么要区分微任务和宏任务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%8F%E4%BB%BB%E5%8A%A1%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">3.</span> <span class="toc-text"> 微任务和宏任务有哪些</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%8F%E4%BB%BB%E5%8A%A1%E6%98%AF%E6%80%8E%E4%B9%88%E6%89%A7%E8%A1%8C%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text"> 微任务和宏任务是怎么执行的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">5.</span> <span class="toc-text"> 案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B1"><span class="toc-number">5.1.</span> <span class="toc-text"> 例 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B2"><span class="toc-number">5.2.</span> <span class="toc-text"> 例 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B3"><span class="toc-number">5.3.</span> <span class="toc-text"> 例 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B4"><span class="toc-number">5.4.</span> <span class="toc-text"> 例 4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B5"><span class="toc-number">5.5.</span> <span class="toc-text"> 例 5</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text"> 总结</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/Web/Vue/2021/02/09/3/" rel="bookmark" title="一些Vue公共方法">一些Vue公共方法</a></li><li><a href="/Web/Wechat/2021/02/18/1/" rel="bookmark" title="微信小程序swiper高度自适应">微信小程序swiper高度自适应</a></li><li><a href="/Web/Vue/2021/02/22/1/" rel="bookmark" title="Vuex入门及使用">Vuex入门及使用</a></li><li><a href="/Web/Js/2021/11/15/1/" rel="bookmark" title="跳出forEach循环">跳出forEach循环</a></li><li><a href="/Web/Js/2021/11/16/1/" rel="bookmark" title="请求动画帧 requestAnimationFrame">请求动画帧 requestAnimationFrame</a></li><li><a href="/Web/Ts/2021/12/03/1/" rel="bookmark" title="TS手册">TS手册</a></li><li><a href="/Web/Webpack/2021/12/23/1/" rel="bookmark" title="Webpack基础">Webpack基础</a></li><li><a href="/Web/Vue/2023/07/12/1/" rel="bookmark" title="Websocket的使用">Websocket的使用</a></li><li class="active"><a href="/Web/2023/07/12/1/" rel="bookmark" title="JS宏任务和微任务">JS宏任务和微任务</a></li><li><a href="/Web/Css/2023/09/04/1/" rel="bookmark" title="Css 预处理语言Sass、Less、Stylus区别">Css 预处理语言Sass、Less、Stylus区别</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="筱何仔"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">筱何仔</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">14</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">10</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hneG0xMw==" title="https:&#x2F;&#x2F;github.com&#x2F;xgxm13"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90dDE4MjM5OTE=" title="https:&#x2F;&#x2F;twitter.com&#x2F;tt1823991"><i class="ic i-twitter"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyMzE4OTk0MA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;123189940"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vNzEzODA0MzgwNQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;7138043805"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-magic"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/favorite/" rel="section"><i class="ic i-heart"></i>收藏夹</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Web/Vue/2023/07/12/1/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/notes/2023/08/30/1/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="分类于 笔记">笔记</a>
+</div>
+
+    <span><a href="/Notes/2021/02/22/2/" title="Nvm安装及日常使用">Nvm安装及日常使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Web/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Web/Wechat/" title="分类于 微信小程序">微信小程序</a>
+</div>
+
+    <span><a href="/Web/Wechat/2021/02/18/1/" title="微信小程序swiper高度自适应">微信小程序swiper高度自适应</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Web/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Web/Vue/" title="分类于 Vue">Vue</a>
+</div>
+
+    <span><a href="/Web/Vue/2021/02/09/3/" title="一些Vue公共方法">一些Vue公共方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Web/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Web/Js/" title="分类于 Js">Js</a>
+</div>
+
+    <span><a href="/Web/Js/2021/11/15/1/" title="跳出forEach循环">跳出forEach循环</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Web/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Web/Css/" title="分类于 CSS">CSS</a>
+</div>
+
+    <span><a href="/Web/Css/2023/09/04/1/" title="Css 预处理语言Sass、Less、Stylus区别">Css 预处理语言Sass、Less、Stylus区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Mac/" title="分类于 Mac">Mac</a>
+</div>
+
+    <span><a href="/Mac/2021/02/09/2/" title="Mac Permission denied的解决方法">Mac Permission denied的解决方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Web/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Web/Js/" title="分类于 Js">Js</a>
+</div>
+
+    <span><a href="/Web/Js/2021/11/16/1/" title="请求动画帧 requestAnimationFrame">请求动画帧 requestAnimationFrame</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Web/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Web/Ts/" title="分类于 Ts">Ts</a>
+</div>
+
+    <span><a href="/Web/Ts/2021/12/03/1/" title="TS手册">TS手册</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/notes/2023/08/30/1/" title="前端面试题">前端面试题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Mac/" title="分类于 Mac">Mac</a>
+</div>
+
+    <span><a href="/Mac/2021/02/09/1/" title="Mac查看ssh公钥">Mac查看ssh公钥</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">筱何仔 @ mengcodes</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">55k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">50 分钟</span>
+  </div>
+  
+  <div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("02/08/2021 12:00:00");//此处修改你的建站时间或者网站上线时间 
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "本站已勉强运行 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+      setInterval("createtime()",250);
+    </script>
+  </div>
+  
+  
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Theme.Shoka</span>
+  </div>
+  
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Web/2023/07/12/1/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+<script src="/live2dw/assets/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/assets/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":250,"height":500,"hOffset":-20,"vOffset":-100},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>

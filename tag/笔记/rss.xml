@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>筱何仔 • Posts by &#34;笔记&#34; tag</title>
+        <link>https://blog.mengcodes.com</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 22 Feb 2021 15:58:50 +0800</pubDate>
+        <lastBuildDate>Mon, 22 Feb 2021 15:58:50 +0800</lastBuildDate>
+        <category>前端</category>
+        <category>CSS</category>
+        <category>Mac</category>
+        <category>笔记</category>
+        <category>Js</category>
+        <category>Ts</category>
+        <category>Vue</category>
+        <category>Vuex</category>
+        <category>Webpack</category>
+        <category>微信小程序</category>
+        <item>
+            <guid isPermalink="true">https://blog.mengcodes.com/Notes/2021/02/22/2/</guid>
+            <title>Nvm安装及日常使用</title>
+            <link>https://blog.mengcodes.com/Notes/2021/02/22/2/</link>
+            <category>笔记</category>
+            <pubDate>Mon, 22 Feb 2021 15:58:50 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;node.js 的版本管理工具 Nvm 的安装及日常使用&lt;br /&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;项目中经常遇到不同项目需要不同的 &lt;span class=&#34;red&#34;&gt;node.js&lt;/span&gt; 版本或者你本地 node 版本与客户现有系统的 &lt;span class=&#34;red&#34;&gt;node.js&lt;/span&gt; 版本相差较大等情况，我们肯定不可能卸载现有的再装客户需要的，这时 &lt;span class=&#34;red&#34;&gt;Nvm&lt;/span&gt; 就派上了用场。通过 &lt;span class=&#34;red&#34;&gt;Nvm&lt;/span&gt;，我们可以来回切换不同版本的&lt;span class=&#34;red&#34;&gt; node.js&lt;/span&gt;，十分方便。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;nvm的安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nvm的安装&#34;&gt;#&lt;/a&gt; Nvm 的安装&lt;/h1&gt;
+&lt;h2 id=&#34;mac安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mac安装&#34;&gt;#&lt;/a&gt; mac 安装&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL252bS1zaC9udm0vYmxvYi9tYXN0ZXIvUkVBRE1FLm1k&#34;&gt;官方 md:https://github.com/nvm-sh/nvm/blob/master/README.md&lt;/span&gt; (多打开几次，比较慢)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;安装&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 命令行代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -o- https:&lt;span class=&#34;comment&#34;&gt;//raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 或者&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wget -qO- https:&lt;span class=&#34;comment&#34;&gt;//raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装完成后关闭终端，重新打开终端输入 &lt;span class=&#34;red&#34;&gt;nvm&lt;/span&gt; 验证一下是否安装成功，当出现 &lt;span class=&#34;red&#34;&gt;Node Version Manager&lt;/span&gt; 时，说明已安装成功。如下图：（单击可放大）&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/22/JFC4bwHGuinTs2X.jpg&#34; alt=&#34;1613984786965.jpg&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;windows安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows安装&#34;&gt;#&lt;/a&gt; windows 安装&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;下载&lt;span class=&#34;blue&#34;&gt; nvm-windows&lt;/span&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2NvcmV5YnV0bGVyL252bS13aW5kb3dz&#34;&gt;https://github.com/coreybutler/nvm-windows&lt;/span&gt; (多打开几次，比较慢)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;nvm的简单使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nvm的简单使用&#34;&gt;#&lt;/a&gt; Nvm 的简单使用&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;简单使用&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 简单使用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nvm list  &lt;span class=&#34;comment&#34;&gt;// 查看已安装所有node版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nvm install &lt;span class=&#34;number&#34;&gt;10.15&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// 安装指定版本node&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nvm uninstall &lt;span class=&#34;number&#34;&gt;10.15&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;//卸载指定版本的node&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nvm use &lt;span class=&#34;number&#34;&gt;10.15&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// 切换node版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nvm alias &lt;span class=&#34;keyword&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;10.15&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// 指定默认版本号&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;blue&#34;&gt;nvm list&lt;/span&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/22/uZTEmztkdjBQneP.jpg&#34; alt=&#34;list.jpg&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;blue&#34;&gt;nvm use [version]&lt;/span&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/22/KdJIkEB9LfWpT5X.jpg&#34; alt=&#34;use.jpg&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;blue&#34;&gt;nvm install [version]&lt;/span&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/22/EX3NHCxZ7lFT4dg.jpg&#34; alt=&#34;install.jpg&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;blue&#34;&gt;nvm uninstall [version]&lt;/span&gt; (不能卸载正在使用的版本，会报 nvm: Cannot uninstall currently-active node version, v6.17.1 (inferred from 6.17.1).)&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/22/oPNZk9ywujIS2le.jpg&#34; alt=&#34;uninstall.jpg&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;blue&#34;&gt;nvm alias default [version]&lt;/span&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/22/zcnAdFDIk2ZpamN.jpg&#34; alt=&#34;default.jpg&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;日常这几个命令已经够用了。&lt;br /&gt;
+&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

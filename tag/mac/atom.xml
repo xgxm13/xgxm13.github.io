@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.mengcodes.com</id>
+    <title>筱何仔 • Posts by &#34;mac&#34; tag</title>
+    <link href="https://blog.mengcodes.com" />
+    <updated>2021-02-09T07:07:57.000Z</updated>
+    <category term="前端" />
+    <category term="CSS" />
+    <category term="Mac" />
+    <category term="笔记" />
+    <category term="Js" />
+    <category term="Ts" />
+    <category term="Vue" />
+    <category term="Vuex" />
+    <category term="Webpack" />
+    <category term="微信小程序" />
+    <entry>
+        <id>https://blog.mengcodes.com/Mac/2021/02/09/2/</id>
+        <title>Mac Permission denied的解决方法</title>
+        <link rel="alternate" href="https://blog.mengcodes.com/Mac/2021/02/09/2/"/>
+        <content type="html">&lt;p&gt;Mac Permission denied 的解决方法&lt;br /&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;br /&gt;
+ 这是因为&lt;span class=&#34;red&#34;&gt;当前文件夹&lt;/span&gt;的权限不够造成的，有一个比较管用的办法，一刀切解决问题&lt;br /&gt;
+&lt;span class=&#34;red&#34;&gt;当前目录&lt;/span&gt;下打开&lt;span class=&#34;red&#34;&gt;终端&lt;/span&gt;&lt;br /&gt;
+ &lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption&gt;&lt;span&gt;示例&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo chmod -R &lt;span class=&#34;number&#34;&gt;777&lt;/span&gt; *&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 表示给这个项目的所有文件夹和文件夹下的文件都授予读写和可执行权限。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="Mac" />
+        <updated>2021-02-09T07:07:57.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://blog.mengcodes.com/Mac/2021/02/09/1/</id>
+        <title>Mac查看ssh公钥</title>
+        <link rel="alternate" href="https://blog.mengcodes.com/Mac/2021/02/09/1/"/>
+        <content type="html">&lt;p&gt;Mac .ssh 文件在哪里查找？&lt;br /&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;br /&gt;
+ 方法 1：桌面 &lt;span class=&#34;green&#34;&gt;--&amp;gt;&lt;/span&gt; 前往 &lt;span class=&#34;green&#34;&gt;--&amp;gt;&lt;/span&gt; 前往文件夹 &lt;span class=&#34;green&#34;&gt;--&amp;gt;&lt;/span&gt; 输入&lt;span class=&#34;red&#34;&gt;～/.ssh&lt;/span&gt;&lt;br /&gt;
+ 方法 2、快捷操作： &lt;span class=&#34;kbd red&#34;&gt;shift&lt;/span&gt; + &lt;span class=&#34;kbd red&#34;&gt;command&lt;/span&gt; + &lt;span class=&#34;kbd red&#34;&gt;G&lt;/span&gt; -&amp;gt; 输入&lt;span class=&#34;red&#34;&gt;～/.ssh&lt;/span&gt;&lt;br /&gt;
+ 如图 (点击可放大)：&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/09/fhRrmbQAFDtnVlX.jpg&#34; alt=&#34;example1.jpg&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/09/WJy1vzZuXYRClDj.jpg&#34; alt=&#34;example2.jpg&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/02/09/J7sE4t2IjV9H8Yf.jpg&#34; alt=&#34;example3.jpg&#34; /&gt;&lt;br /&gt;
+&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="Mac" />
+        <updated>2021-02-09T06:23:52.000Z</updated>
+    </entry>
+</feed>
