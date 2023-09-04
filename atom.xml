@@ -3,17 +3,65 @@
     <id>https://blog.mengcodes.com</id>
     <title>筱何仔</title>
     <link href="https://blog.mengcodes.com" />
-    <updated>2023-09-04T08:15:39.000Z</updated>
+    <updated>2023-09-04T10:44:35.000Z</updated>
     <category term="前端" />
     <category term="CSS" />
+    <category term="Js" />
     <category term="Mac" />
     <category term="笔记" />
-    <category term="Js" />
     <category term="Ts" />
     <category term="Vue" />
     <category term="Vuex" />
     <category term="Webpack" />
     <category term="微信小程序" />
+    <entry>
+        <id>https://blog.mengcodes.com/Web/Js/2023/09/04/2/</id>
+        <title>Js 检测数据类型的方法和区别</title>
+        <link rel="alternate" href="https://blog.mengcodes.com/Web/Js/2023/09/04/2/"/>
+        <content type="html">&lt;p&gt;JS 的数据类型判断有 typeof ()、instanceof ()、constructor、Object.prototype.toString.call () 等方法，但是他们也有区别。&lt;br /&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参考 CSDN &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pqeV9hbmRyb2lkX2Jsb2cvYXJ0aWNsZS9kZXRhaWxzLzgxMDIzMTc3&#34;&gt;zhongjunyao&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;typeof&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#typeof&#34;&gt;#&lt;/a&gt; typeof&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;);               &lt;span class=&#34;comment&#34;&gt;// number&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;);            &lt;span class=&#34;comment&#34;&gt;// boolean&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;);           &lt;span class=&#34;comment&#34;&gt;// string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; []);              &lt;span class=&#34;comment&#34;&gt;// object     数组的数据类型在 typeof 中被解释为 object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;);    &lt;span class=&#34;comment&#34;&gt;// function&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &amp;#123;&amp;#125;);              &lt;span class=&#34;comment&#34;&gt;// object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;undefined&lt;/span&gt;);       &lt;span class=&#34;comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt;);            &lt;span class=&#34;comment&#34;&gt;// object     null 的数据类型被 typeof 解释为 object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;div class=&#34;note danger&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;ins class=&#34;primary&#34;&gt;数字 Number，布尔值 Boolean，字符串 String，函数 Function，对象 Object，Undefined&lt;/ins&gt; 这一些数据类型在 typeof 下都被精准的解释，只有数组和 null 的数据类型不够精准。其实 typeof 对于数组 和 null 的类型判断是正确的，只不过不够精准而已。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;instanceof&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#instanceof&#34;&gt;#&lt;/a&gt; instanceof&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;);                    &lt;span class=&#34;comment&#34;&gt;// false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;);                &lt;span class=&#34;comment&#34;&gt;// false &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;);                &lt;span class=&#34;comment&#34;&gt;// false  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log([] &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;);                    &lt;span class=&#34;comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Function&lt;/span&gt;);       &lt;span class=&#34;comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&amp;#123;&amp;#125; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Object&lt;/span&gt;);                   &lt;span class=&#34;comment&#34;&gt;// true    &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;literal&#34;&gt;undefined&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; Undefined);         &lt;span class=&#34;comment&#34;&gt;// Uncaught ReferenceError: Undefined is not defined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; Null);                   &lt;span class=&#34;comment&#34;&gt;// Uncaught ReferenceError: Null is not defined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接的字面量值判断数据类型，只有&lt;ins class=&#34;primary&#34;&gt;引用数据类型（Array，Function，Object）&lt;/ins&gt;被精准判断，&lt;ins class=&#34;primary&#34;&gt;其他（数值 Number，布尔值 Boolean，字符串 String）&lt;/ins&gt;字面值不能被 instanceof 精准判断。&lt;/li&gt;
+&lt;li&gt;instanceof 在 MDN 中的解释：&lt;ins class=&#34;dot&#34;&gt;instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。&lt;/ins&gt;其意思就是判断对象是否是某一数据类型（如 Array）的实例，请重点关注一下是判断一个&lt;span class=&#34;red&#34;&gt;对象&lt;/span&gt;是否是数据类型的实例。&lt;/li&gt;
+&lt;li&gt;上面案例可以更改如下：&lt;br /&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;);               &lt;span class=&#34;comment&#34;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;(&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;);          &lt;span class=&#34;comment&#34;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;);           &lt;span class=&#34;comment&#34;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;对于 null 和 undefined&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;浏览器认为 null，undefined 不是构造器。但是在 typeof 中你可能已经发现了，typeof null 的结果是 object，typeof undefined 的结果是 undefined ，这是怎么回事呢？&lt;/li&gt;
+&lt;li&gt;尤其是 null，其实这是 js 发展过程中设计者的重大失误，早期准备更改 null 的类型为 null，由于当时已经有大量网站使用了 null，如果更改，将导致很多网站的逻辑出现漏洞问题，就没有更改过来，于是一直遗留到现在。作为学习者，我们只需要记住就好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;constructor&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#constructor&#34;&gt;#&lt;/a&gt; constructor&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;).constructor === &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;).constructor === &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;).constructor === &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(([]).constructor === &lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;).constructor === &lt;span class=&#34;built_in&#34;&gt;Function&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&amp;#123;&amp;#125;).constructor === &lt;span class=&#34;built_in&#34;&gt;Object&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用 costructor 来判断类型看起来是完美的，然而，如果我创建一个对象，更改它的原型，这种方式也变得不可靠了。&lt;br /&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Fn&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Fn.prototype=&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; f=&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; Fn();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(f.constructor===Fn);    &lt;span class=&#34;comment&#34;&gt;// false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(f.constructor===&lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// true &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;objectprototypetostringcall&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#objectprototypetostringcall&#34;&gt;#&lt;/a&gt; Object.prototype.toString.call&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; a = &lt;span class=&#34;built_in&#34;&gt;Object&lt;/span&gt;.prototype.toString;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;));               &lt;span class=&#34;comment&#34;&gt;// [object Number]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;));            &lt;span class=&#34;comment&#34;&gt;// [object Boolean]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;));           &lt;span class=&#34;comment&#34;&gt;// [object String]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call([]));              &lt;span class=&#34;comment&#34;&gt;// [object Array]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;));    &lt;span class=&#34;comment&#34;&gt;// [object Function]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&amp;#123;&amp;#125;));              &lt;span class=&#34;comment&#34;&gt;// [object Object]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;literal&#34;&gt;undefined&lt;/span&gt;));       &lt;span class=&#34;comment&#34;&gt;// [object Undefined]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt;));            &lt;span class=&#34;comment&#34;&gt;// [object Null]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 Object 对象的原型方法 toString ，使用 call 进行狸猫换太子，借用 Object 的 toString  方法，结果精准的显示我们需要的数据类型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="前端" />
+        <category term="Js" />
+        <updated>2023-09-04T10:44:35.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.mengcodes.com/Web/Css/2023/09/04/1/</id>
         <title>Css 预处理语言Sass、Less、Stylus区别</title>
@@ -96,11 +144,11 @@
         <updated>2023-09-04T08:15:39.000Z</updated>
     </entry>
     <entry>
-        <id>https://blog.mengcodes.com/notes/2023/08/30/1/</id>
+        <id>https://blog.mengcodes.com/Web/2023/08/30/1/</id>
         <title>前端面试题</title>
-        <link rel="alternate" href="https://blog.mengcodes.com/notes/2023/08/30/1/"/>
+        <link rel="alternate" href="https://blog.mengcodes.com/Web/2023/08/30/1/"/>
         <content type="html">&lt;p&gt;&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;一-css部分&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-css部分&#34;&gt;#&lt;/a&gt; 一、CSS 部分&lt;/h1&gt;
+&lt;h1 id=&#34;css&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#css&#34;&gt;#&lt;/a&gt; CSS&lt;/h1&gt;
 &lt;h2 id=&#34;css的盒子模型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#css的盒子模型&#34;&gt;#&lt;/a&gt; &lt;span class=&#34;red&#34;&gt;css&lt;/span&gt; 的盒子模型&lt;/h2&gt;
 &lt;div class=&#34;note info&#34;&gt;
 &lt;ul&gt;
@@ -184,55 +232,109 @@ IE 盒模型 margin + content (border + padding)&lt;/li&gt;
 &lt;h2 id=&#34;有没有用过预处理器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#有没有用过预处理器&#34;&gt;#&lt;/a&gt; 有没有用过预处理器？&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;预处理语言增加了变量、嵌套、运算、混入 (Mixin)、继承、颜色处理、函数等特性。常用的有 sass less stylus&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.mengcodes.com/Web/Css/2023/09/04/1//&#34;&gt;Css 预处理语言 Sass、Less、Stylus 区别&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;区别请移步 &lt;a href=&#34;https://blog.mengcodes.com/Web/Css/2023/09/04/1//&#34;&gt;Css 预处理语言 Sass、Less、Stylus 区别&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;二、JavaSscipt&lt;br /&gt;
-1.JS 由哪三部分组成？&lt;br /&gt;
-ECMAScript：JS 的核心内容，描述了语言的基础语法，比如 var,for，数据类型（数组、字符串），&lt;br /&gt;
-文档对象模型（DOM）：DOM 把整个 HTML 页面规划为元素构成的文档&lt;br /&gt;
-浏览器对象模型（BOM）：对浏览器窗口进行访问和操作&lt;br /&gt;
- 2.JS 有哪些内置对象？&lt;br /&gt;
-String Boolean Number Array Object Function Math Date RegExp...&lt;br /&gt;
+&lt;h1 id=&#34;javasscipt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#javasscipt&#34;&gt;#&lt;/a&gt; JavaSscipt&lt;/h1&gt;
+&lt;h2 id=&#34;js由哪三部分组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js由哪三部分组成&#34;&gt;#&lt;/a&gt; JS 由哪三部分组成&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;ECMAScript：JS 的核心内容，描述了语言的基础语法，比如 var,for，数据类型（数组、字符串），&lt;/li&gt;
+&lt;li&gt;文档对象模型（DOM）：DOM 把整个 HTML 页面规划为元素构成的文档&lt;/li&gt;
+&lt;li&gt;浏览器对象模型（BOM）：对浏览器窗口进行访问和操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;js有哪些内置对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js有哪些内置对象&#34;&gt;#&lt;/a&gt; JS 有哪些内置对象？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;String Boolean Number Array Object Function Math Date RegExp...&lt;br /&gt;
 Math&lt;br /&gt;
 abs() sqrt() max() min()&lt;br /&gt;
-Data&lt;br /&gt;
-new Data() getYear()&lt;br /&gt;
+Date&lt;br /&gt;
+new Date() getYear()&lt;br /&gt;
 Array&lt;br /&gt;
-String&lt;br /&gt;
 concat() length  slice() split()&lt;br /&gt;
- 3. 操作数组的方法有哪些？&lt;br /&gt;
-push() pop() sort() splice() unshift() shift() reverse() concat() join() map() filter()&lt;br /&gt;
-ervery() some() reduce() isArray() findIndex()&lt;br /&gt;
- 哪些方法会改变原数组？&lt;br /&gt;
-push() pop() unshift() shift() sort() reverse() splice()&lt;br /&gt;
- 4.JS 对数据类的检测方式有哪些？&lt;br /&gt;
-typeof()&lt;br /&gt;
+String&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;操作数组的方法有哪些&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操作数组的方法有哪些&#34;&gt;#&lt;/a&gt; 操作数组的方法有哪些？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;push() pop() sort() splice() unshift() shift() reverse() concat() join() map() filter()&lt;br /&gt;
+ervery() some() reduce() isArray() findIndex()&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;哪些方法会改变原数组？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;push() pop() unshift() shift() sort() reverse() splice()&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;js数据类型及转换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js数据类型及转换&#34;&gt;#&lt;/a&gt; JS 数据类型及转换&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;基本类型： Number、String、Boolean、null、undefined、Symbol、Bigint&lt;/li&gt;
+&lt;li&gt;引用类型：Object: Array – 数组对象、RegExp – 正则对象、Date – 日期对象、Math – 数学函数、Function – 函数对象等常见类型&lt;/li&gt;
+&lt;li&gt;其中基础数据类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量。引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址。假如声明两个引用类型同时指向了一个地址的时候，修改其中一个那么另外一个也会改变。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;数据类型转换&lt;br /&gt;
+强制类型转换: Number ()、parseInt ()、parseFloat ()、Boolean () 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Number () 方法的强制转换规则：&lt;br /&gt;
+如果是布尔值，true 和 false 分别被转换为 1 和 0。&lt;br /&gt;
+如果是数字，返回自身。&lt;br /&gt;
+如果是 null，返回 0。&lt;br /&gt;
+如果是 undefined，返回 NaN。&lt;br /&gt;
+如果是字符串，遵循以下规则：如果字符串中只包含数字（或者是 0X / 0x 开头的十六进制数字字符串，允许包含正负号），则将其转换为十进制；如果字符串中包含有效的浮点格式，将其转换为浮点数值；如果是空字符串，将其转换为 0；如果不是以上格式的字符串，均返回 NaN。&lt;br /&gt;
+如果是 Symbol，抛出错误。&lt;br /&gt;
+如果是对象，并且部署了 [Symbol.toPrimitive] ，那么调用此方法，否则调用对象的 valueOf () 方法，然后依据前面的规则转换返回的值；如果转换的结果是 NaN ，则调用对象的 toString () 方法，再次依照前面的顺序转换返回对应的值。&lt;/li&gt;
+&lt;li&gt;parseInt () 方法的强制转换规则：&lt;br /&gt;
+这个方法的规则是：除了字符串参数的第一个字符为数字返回的结果为数字外，其他都是 NAN。&lt;/li&gt;
+&lt;li&gt;parseFloat()&lt;br /&gt;
+ 这个方法的规则和 parseInt 类似，如果给定值能被解析成浮点数，则返回浮点数。如果给定值不能被转换成数值，则会返回 NAN。&lt;/li&gt;
+&lt;li&gt;Boolean () 方法的强制转换规则：&lt;br /&gt;
+这个方法的规则是：除了 undefined、 null、 false、 ”、 0（包括 +0，-0）、 NaN 转换出来是 false，其他都是 true。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;隐式类型转换:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;凡是通过逻辑运算符 (&amp;amp;&amp;amp;、 ||、 !)、运算符 (+、-、*、/)、关系操作符 (&amp;gt;、 &amp;lt;、 &amp;lt;= 、&amp;gt;=)、相等运算符 (==) 或者 if/while 条件的操作，如果遇到两个数据类型不一样的情况，都会出现隐式类型转换。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;js对数据类的检测方式有哪些&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js对数据类的检测方式有哪些&#34;&gt;#&lt;/a&gt; JS 对数据类的检测方式有哪些？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;typeof()&lt;br /&gt;
 instanceof()&lt;br /&gt;
 constructor&lt;br /&gt;
-Object.prototype.toString.call()&lt;br /&gt;
- 5. 说一下闭包，闭包有什么特点？&lt;br /&gt;
-什么是闭包？函数嵌套函数，内部函数被外部函数返回并保存下来时，就会产生闭包&lt;br /&gt;
-特点：可以重复利用变量，并且这个变量不会污染全局的一种机制；这个变量是一直保存再内存中，不会被垃圾回收机制回收&lt;br /&gt;
+Object.prototype.toString.call()&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;区别请移步 &lt;a href=&#34;https://blog.mengcodes.com/Web/Js/2023/09/04/2/&#34;&gt;Js 检测数据类型的方法和区别&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;闭包及特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#闭包及特点&#34;&gt;#&lt;/a&gt; 闭包及特点&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;什么是闭包？函数嵌套函数，内部函数被外部函数返回并保存下来时，就会产生闭包&lt;br /&gt;
+特点：可以重复利用变量，并且这个变量不会污染全局的一种机制；这个变量是一直保存在内存中，不会被垃圾回收机制回收&lt;br /&gt;
 缺点：闭包较多的时候，会消耗内存，导致页面的性能下降，在 IE 浏览器中才会导致内存泄漏&lt;br /&gt;
-使用场景：防抖，节流，函数嵌套函数避免全局污染的时候&lt;br /&gt;
- 6. 前端的内存泄漏怎么理解？&lt;br /&gt;
-JS 里已经分配内存地址的对象，但是由于长时间没有释放或者没办法清除，造成长期占用内存的现象，会让内存资源大幅浪费，最终导致运行速度慢，甚至崩溃的情况。&lt;br /&gt;
+使用场景：防抖，节流，函数嵌套函数避免全局污染，自执行的时候&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;前端的内存泄漏怎么理解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前端的内存泄漏怎么理解&#34;&gt;#&lt;/a&gt; 前端的内存泄漏怎么理解？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;JS 里已经分配内存地址的对象，但是由于长时间没有释放或者没办法清除，造成长期占用内存的现象，会让内存资源大幅浪费，最终导致运行速度慢，甚至崩溃的情况。&lt;br /&gt;
 垃圾回收机制&lt;br /&gt;
-因素：一些为生命直接赋值的变量；一些未清空的定时器；过度的闭包；一些引用元素没有被清除。&lt;br /&gt;
-7. 事件委托是什么？&lt;br /&gt;
-又叫事件代理，原理就是利用了事件冒泡的机制来实现，也就是说把子元素的事件绑定到了父元素的身上&lt;br /&gt;
-如果子元素组织了事件冒泡，那么委托也就不成立&lt;br /&gt;
-组织事件冒泡：event.stopPropagation ()&lt;br /&gt;
- addEventListener (&#39;click&#39;, 函数名，true/false) 默认是 false（事件冒泡），true（事件捕获）&lt;br /&gt;
-好处：提高性能，减少事件的绑定，也就减少了内存的占用。&lt;br /&gt;
-8. 基本数据类型和引用数据类型的区别？&lt;br /&gt;
-基本数据类型：String Number Boolean undefined null&lt;br /&gt;
- 基本数据类型保存在栈内存当中，保存的就是一个具体的值&lt;br /&gt;
-引用数据类型（复杂数据类型）：Object Function Array&lt;br /&gt;
- 保存在堆内存当中，声明一个引用类型的变量，它保存的是引用类型数据的地址&lt;br /&gt;
-假如声明两个引用类型同时指向了一个地址的时候，修改其中一个那么另外一个也会改变&lt;br /&gt;
- 9. 说一下原型链。&lt;br /&gt;
-原型就是一个普通对象，它是为构造函数的实例共享属性和方法；所有实例中引用的原型都是同一个对象&lt;br /&gt;
+因素：一些为生命直接赋值的变量；一些未清空的定时器；过度的闭包；一些引用元素没有被清除。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;事件委托是什么&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#事件委托是什么&#34;&gt;#&lt;/a&gt; 事件委托是什么？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;又叫事件代理，原理就是利用了事件冒泡的机制来实现，也就是说把子元素的事件绑定到了父元素的身上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;如果子元素阻止了事件冒泡，那么委托也就不成立，阻止事件冒泡：event.stopPropagation ()&lt;br /&gt;
+ 方式：addEventListener (&#39;click&#39;, 函数名，true/false) 默认是 false（事件冒泡），true（事件捕获）&lt;br /&gt;
+好处：提高性能，减少事件的绑定，也就减少了内存的占用。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;说一下原型链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#说一下原型链&#34;&gt;#&lt;/a&gt; 说一下原型链。&lt;/h2&gt;
+&lt;p&gt;原型就是一个普通对象，它是为构造函数的实例共享属性和方法；所有实例中引用的原型都是同一个对象&lt;br /&gt;
 使用 prototype 可以把方法挂在原型上，内存值保存一份&lt;br /&gt;
 __proto__可以理解为指针，实例对象中的属性，指向了构造函数的原型（prototype）&lt;br /&gt;
 10.new 操作符具体做了什么？&lt;br /&gt;
@@ -978,6 +1080,7 @@ webpack 会把 js css image 看作一个模块，用 import/require 引入&lt;br
  2. 利用工具保证项目的正常进度，规范化&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
 </content>
+        <category term="前端" />
         <updated>2023-08-30T14:57:40.000Z</updated>
     </entry>
     <entry>

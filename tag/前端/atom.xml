@@ -3,17 +3,65 @@
     <id>https://blog.mengcodes.com</id>
     <title>筱何仔 • Posts by &#34;前端&#34; tag</title>
     <link href="https://blog.mengcodes.com" />
-    <updated>2023-09-04T08:15:39.000Z</updated>
+    <updated>2023-09-04T10:44:35.000Z</updated>
     <category term="前端" />
     <category term="CSS" />
+    <category term="Js" />
     <category term="Mac" />
     <category term="笔记" />
-    <category term="Js" />
     <category term="Ts" />
     <category term="Vue" />
     <category term="Vuex" />
     <category term="Webpack" />
     <category term="微信小程序" />
+    <entry>
+        <id>https://blog.mengcodes.com/Web/Js/2023/09/04/2/</id>
+        <title>Js 检测数据类型的方法和区别</title>
+        <link rel="alternate" href="https://blog.mengcodes.com/Web/Js/2023/09/04/2/"/>
+        <content type="html">&lt;p&gt;JS 的数据类型判断有 typeof ()、instanceof ()、constructor、Object.prototype.toString.call () 等方法，但是他们也有区别。&lt;br /&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参考 CSDN &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pqeV9hbmRyb2lkX2Jsb2cvYXJ0aWNsZS9kZXRhaWxzLzgxMDIzMTc3&#34;&gt;zhongjunyao&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;typeof&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#typeof&#34;&gt;#&lt;/a&gt; typeof&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;);               &lt;span class=&#34;comment&#34;&gt;// number&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;);            &lt;span class=&#34;comment&#34;&gt;// boolean&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;);           &lt;span class=&#34;comment&#34;&gt;// string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; []);              &lt;span class=&#34;comment&#34;&gt;// object     数组的数据类型在 typeof 中被解释为 object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;);    &lt;span class=&#34;comment&#34;&gt;// function&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &amp;#123;&amp;#125;);              &lt;span class=&#34;comment&#34;&gt;// object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;undefined&lt;/span&gt;);       &lt;span class=&#34;comment&#34;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt;);            &lt;span class=&#34;comment&#34;&gt;// object     null 的数据类型被 typeof 解释为 object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;div class=&#34;note danger&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;ins class=&#34;primary&#34;&gt;数字 Number，布尔值 Boolean，字符串 String，函数 Function，对象 Object，Undefined&lt;/ins&gt; 这一些数据类型在 typeof 下都被精准的解释，只有数组和 null 的数据类型不够精准。其实 typeof 对于数组 和 null 的类型判断是正确的，只不过不够精准而已。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;instanceof&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#instanceof&#34;&gt;#&lt;/a&gt; instanceof&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;);                    &lt;span class=&#34;comment&#34;&gt;// false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;);                &lt;span class=&#34;comment&#34;&gt;// false &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;);                &lt;span class=&#34;comment&#34;&gt;// false  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log([] &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;);                    &lt;span class=&#34;comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Function&lt;/span&gt;);       &lt;span class=&#34;comment&#34;&gt;// true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&amp;#123;&amp;#125; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Object&lt;/span&gt;);                   &lt;span class=&#34;comment&#34;&gt;// true    &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;literal&#34;&gt;undefined&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; Undefined);         &lt;span class=&#34;comment&#34;&gt;// Uncaught ReferenceError: Undefined is not defined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; Null);                   &lt;span class=&#34;comment&#34;&gt;// Uncaught ReferenceError: Null is not defined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接的字面量值判断数据类型，只有&lt;ins class=&#34;primary&#34;&gt;引用数据类型（Array，Function，Object）&lt;/ins&gt;被精准判断，&lt;ins class=&#34;primary&#34;&gt;其他（数值 Number，布尔值 Boolean，字符串 String）&lt;/ins&gt;字面值不能被 instanceof 精准判断。&lt;/li&gt;
+&lt;li&gt;instanceof 在 MDN 中的解释：&lt;ins class=&#34;dot&#34;&gt;instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。&lt;/ins&gt;其意思就是判断对象是否是某一数据类型（如 Array）的实例，请重点关注一下是判断一个&lt;span class=&#34;red&#34;&gt;对象&lt;/span&gt;是否是数据类型的实例。&lt;/li&gt;
+&lt;li&gt;上面案例可以更改如下：&lt;br /&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;);               &lt;span class=&#34;comment&#34;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;(&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;);          &lt;span class=&#34;comment&#34;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;);           &lt;span class=&#34;comment&#34;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;对于 null 和 undefined&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;浏览器认为 null，undefined 不是构造器。但是在 typeof 中你可能已经发现了，typeof null 的结果是 object，typeof undefined 的结果是 undefined ，这是怎么回事呢？&lt;/li&gt;
+&lt;li&gt;尤其是 null，其实这是 js 发展过程中设计者的重大失误，早期准备更改 null 的类型为 null，由于当时已经有大量网站使用了 null，如果更改，将导致很多网站的逻辑出现漏洞问题，就没有更改过来，于是一直遗留到现在。作为学习者，我们只需要记住就好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;constructor&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#constructor&#34;&gt;#&lt;/a&gt; constructor&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;).constructor === &lt;span class=&#34;built_in&#34;&gt;Number&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;).constructor === &lt;span class=&#34;built_in&#34;&gt;Boolean&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;).constructor === &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(([]).constructor === &lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;).constructor === &lt;span class=&#34;built_in&#34;&gt;Function&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log((&amp;#123;&amp;#125;).constructor === &lt;span class=&#34;built_in&#34;&gt;Object&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用 costructor 来判断类型看起来是完美的，然而，如果我创建一个对象，更改它的原型，这种方式也变得不可靠了。&lt;br /&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Fn&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Fn.prototype=&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; f=&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; Fn();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(f.constructor===Fn);    &lt;span class=&#34;comment&#34;&gt;// false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(f.constructor===&lt;span class=&#34;built_in&#34;&gt;Array&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// true &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;objectprototypetostringcall&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#objectprototypetostringcall&#34;&gt;#&lt;/a&gt; Object.prototype.toString.call&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;codes&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; a = &lt;span class=&#34;built_in&#34;&gt;Object&lt;/span&gt;.prototype.toString;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;));               &lt;span class=&#34;comment&#34;&gt;// [object Number]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;));            &lt;span class=&#34;comment&#34;&gt;// [object Boolean]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;string&#34;&gt;&amp;#x27;str&amp;#x27;&lt;/span&gt;));           &lt;span class=&#34;comment&#34;&gt;// [object String]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call([]));              &lt;span class=&#34;comment&#34;&gt;// [object Array]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;));    &lt;span class=&#34;comment&#34;&gt;// [object Function]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&amp;#123;&amp;#125;));              &lt;span class=&#34;comment&#34;&gt;// [object Object]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;literal&#34;&gt;undefined&lt;/span&gt;));       &lt;span class=&#34;comment&#34;&gt;// [object Undefined]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(a.call(&lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt;));            &lt;span class=&#34;comment&#34;&gt;// [object Null]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 Object 对象的原型方法 toString ，使用 call 进行狸猫换太子，借用 Object 的 toString  方法，结果精准的显示我们需要的数据类型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="前端" />
+        <category term="Js" />
+        <updated>2023-09-04T10:44:35.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.mengcodes.com/Web/Css/2023/09/04/1/</id>
         <title>Css 预处理语言Sass、Less、Stylus区别</title>
@@ -94,6 +142,946 @@
         <category term="前端" />
         <category term="CSS" />
         <updated>2023-09-04T08:15:39.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://blog.mengcodes.com/Web/2023/08/30/1/</id>
+        <title>前端面试题</title>
+        <link rel="alternate" href="https://blog.mengcodes.com/Web/2023/08/30/1/"/>
+        <content type="html">&lt;p&gt;&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;css&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#css&#34;&gt;#&lt;/a&gt; CSS&lt;/h1&gt;
+&lt;h2 id=&#34;css的盒子模型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#css的盒子模型&#34;&gt;#&lt;/a&gt; &lt;span class=&#34;red&#34;&gt;css&lt;/span&gt; 的盒子模型&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;在 HTML 页面中的所有元素都可以看成是一个盒子。盒子的组成：内容 content、内边距 padding、边框 border、外边距 margin&lt;/li&gt;
+&lt;li&gt;盒模型的类型：&lt;br /&gt;
+标准盒模型 margin + border + padding + content&lt;br /&gt;
+IE 盒模型 margin + content (border + padding)&lt;/li&gt;
+&lt;li&gt;控制盒模型的模式：box-sizing:content-box（默认值，标准盒模型）、border-box（IE 盒模型）;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;css选择器的优先级&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#css选择器的优先级&#34;&gt;#&lt;/a&gt; CSS 选择器的优先级&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;CSS 的特性：继承性、层叠性、优先级&lt;/li&gt;
+&lt;li&gt;优先级：写 CSS 样式的时候，会给同一个元素添加多个样式，此时谁的权重高就显示谁的样式&lt;/li&gt;
+&lt;li&gt;标签、类 / 伪类 / 属性、全局选择器、行内样式、id、!important&lt;/li&gt;
+&lt;li&gt;&lt;ins class=&#34;dot&#34;&gt;!important &amp;gt; 行内样式 &amp;gt; id &amp;gt; 类 / 伪类 / 属性 &amp;gt; 标签 &amp;gt; 全局选择器&lt;/ins&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;隐藏元素的方法有哪些&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#隐藏元素的方法有哪些&#34;&gt;#&lt;/a&gt; 隐藏元素的方法有哪些？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;label primary&#34;&gt;display:none;&lt;/span&gt; 元素在页面上消失，不占据空间&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;label primary&#34;&gt;opacity:0;&lt;/span&gt; 设置了元素的透明度为 0，元素不可见，占据空间位置&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;label primary&#34;&gt;visibility:hidden;&lt;/span&gt; 让元素消失，占据空间位置，一种不可见的状态&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;label primary&#34;&gt;position:absolute;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;label primary&#34;&gt;clip-path&lt;/span&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N3eXAxODgwOS9hcnRpY2xlL2RldGFpbHMvMTA1MDk3MjgyLw==&#34;&gt; CSS3 Clip-Path &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;px和rem的区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#px和rem的区别&#34;&gt;#&lt;/a&gt; px 和 rem 的区别&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;px 是像素，显示器上给我们呈现画面的像素，每个像素的大小是一样，绝对单位长度&lt;/li&gt;
+&lt;li&gt;rem，相对单位，相对于 html 根节点的 font-size 的值，直接给 html 节点的 font-size:62.5%; 1rem = 10px; （16px*62.5%=10px）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;重绘重排有什么区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重绘重排有什么区别&#34;&gt;#&lt;/a&gt; 重绘重排有什么区别？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;重绘：计算好盒模型的位置、大小和其他一些属性之后，浏览器就会根据每个盒模型的特性进行绘制&lt;/li&gt;
+&lt;li&gt;重排（回流）：布局引擎会根据所有的样式计算出盒模型在页面上的位置和大小&lt;/li&gt;
+&lt;li&gt;浏览器的渲染机制&lt;br /&gt;
+对 DOM 的样式进行修改，比如 color 和 background-color，浏览器不需要重新计算几何属性的时候，直接绘制了该元素的新样式，那么这里就只触发了重绘&lt;br /&gt;
+对 DOM 的大小、位置进行修改后，浏览器需要重新计算元素的这些几何属性，就叫重排&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;让一个元素水平垂直居中的方式有哪些&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#让一个元素水平垂直居中的方式有哪些&#34;&gt;#&lt;/a&gt; 让一个元素水平垂直居中的方式有哪些？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;定位 + margin&lt;/li&gt;
+&lt;li&gt;定位 + transform&lt;/li&gt;
+&lt;li&gt;flex 布局&lt;/li&gt;
+&lt;li&gt;grid 布局&lt;/li&gt;
+&lt;li&gt;table 布局&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;css的哪些属性哪些可以继承哪些不可以继承&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#css的哪些属性哪些可以继承哪些不可以继承&#34;&gt;#&lt;/a&gt; CSS 的哪些属性哪些可以继承？哪些不可以继承？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CSS 的三大特性：层叠、继承、优先级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details class=&#34;primary&#34;&gt;&lt;summary&gt;展开&lt;/summary&gt;&lt;div&gt;
+&lt;div class=&#34;note primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;（1）层叠性：相同选择器给设置相同的样式，此时一个样式就会覆盖另一个冲突样式。原则：样式冲突 - 遵循的原则是就近原则，哪个样式理结构近，就执行哪个样式&lt;/li&gt;
+&lt;li&gt;（2）继承性：子标签会继承父标签的某些样式，如文本颜色，字号&lt;/li&gt;
+&lt;li&gt;（3）优先级：给同一个元素指定多个选择器，就会产生优先级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;字体的一些属性：font&lt;/li&gt;
+&lt;li&gt;文本的一些属性：line-height&lt;/li&gt;
+&lt;li&gt;元素的可见性：visibility:hidden&lt;/li&gt;
+&lt;li&gt;表格布局的属性：border-spacing&lt;/li&gt;
+&lt;li&gt;列表的属性：list-style&lt;/li&gt;
+&lt;li&gt;页面样式属性：page&lt;/li&gt;
+&lt;li&gt;声音的样式属性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;有没有用过预处理器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#有没有用过预处理器&#34;&gt;#&lt;/a&gt; 有没有用过预处理器？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;预处理语言增加了变量、嵌套、运算、混入 (Mixin)、继承、颜色处理、函数等特性。常用的有 sass less stylus&lt;/li&gt;
+&lt;li&gt;区别请移步 &lt;a href=&#34;https://blog.mengcodes.com/Web/Css/2023/09/04/1//&#34;&gt;Css 预处理语言 Sass、Less、Stylus 区别&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;javasscipt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#javasscipt&#34;&gt;#&lt;/a&gt; JavaSscipt&lt;/h1&gt;
+&lt;h2 id=&#34;js由哪三部分组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js由哪三部分组成&#34;&gt;#&lt;/a&gt; JS 由哪三部分组成&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;ECMAScript：JS 的核心内容，描述了语言的基础语法，比如 var,for，数据类型（数组、字符串），&lt;/li&gt;
+&lt;li&gt;文档对象模型（DOM）：DOM 把整个 HTML 页面规划为元素构成的文档&lt;/li&gt;
+&lt;li&gt;浏览器对象模型（BOM）：对浏览器窗口进行访问和操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;js有哪些内置对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js有哪些内置对象&#34;&gt;#&lt;/a&gt; JS 有哪些内置对象？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;String Boolean Number Array Object Function Math Date RegExp...&lt;br /&gt;
+Math&lt;br /&gt;
+abs() sqrt() max() min()&lt;br /&gt;
+Date&lt;br /&gt;
+new Date() getYear()&lt;br /&gt;
+Array&lt;br /&gt;
+concat() length  slice() split()&lt;br /&gt;
+String&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;操作数组的方法有哪些&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操作数组的方法有哪些&#34;&gt;#&lt;/a&gt; 操作数组的方法有哪些？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;push() pop() sort() splice() unshift() shift() reverse() concat() join() map() filter()&lt;br /&gt;
+ervery() some() reduce() isArray() findIndex()&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;哪些方法会改变原数组？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;push() pop() unshift() shift() sort() reverse() splice()&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;js数据类型及转换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js数据类型及转换&#34;&gt;#&lt;/a&gt; JS 数据类型及转换&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;基本类型： Number、String、Boolean、null、undefined、Symbol、Bigint&lt;/li&gt;
+&lt;li&gt;引用类型：Object: Array – 数组对象、RegExp – 正则对象、Date – 日期对象、Math – 数学函数、Function – 函数对象等常见类型&lt;/li&gt;
+&lt;li&gt;其中基础数据类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量。引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址。假如声明两个引用类型同时指向了一个地址的时候，修改其中一个那么另外一个也会改变。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;数据类型转换&lt;br /&gt;
+强制类型转换: Number ()、parseInt ()、parseFloat ()、Boolean () 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Number () 方法的强制转换规则：&lt;br /&gt;
+如果是布尔值，true 和 false 分别被转换为 1 和 0。&lt;br /&gt;
+如果是数字，返回自身。&lt;br /&gt;
+如果是 null，返回 0。&lt;br /&gt;
+如果是 undefined，返回 NaN。&lt;br /&gt;
+如果是字符串，遵循以下规则：如果字符串中只包含数字（或者是 0X / 0x 开头的十六进制数字字符串，允许包含正负号），则将其转换为十进制；如果字符串中包含有效的浮点格式，将其转换为浮点数值；如果是空字符串，将其转换为 0；如果不是以上格式的字符串，均返回 NaN。&lt;br /&gt;
+如果是 Symbol，抛出错误。&lt;br /&gt;
+如果是对象，并且部署了 [Symbol.toPrimitive] ，那么调用此方法，否则调用对象的 valueOf () 方法，然后依据前面的规则转换返回的值；如果转换的结果是 NaN ，则调用对象的 toString () 方法，再次依照前面的顺序转换返回对应的值。&lt;/li&gt;
+&lt;li&gt;parseInt () 方法的强制转换规则：&lt;br /&gt;
+这个方法的规则是：除了字符串参数的第一个字符为数字返回的结果为数字外，其他都是 NAN。&lt;/li&gt;
+&lt;li&gt;parseFloat()&lt;br /&gt;
+ 这个方法的规则和 parseInt 类似，如果给定值能被解析成浮点数，则返回浮点数。如果给定值不能被转换成数值，则会返回 NAN。&lt;/li&gt;
+&lt;li&gt;Boolean () 方法的强制转换规则：&lt;br /&gt;
+这个方法的规则是：除了 undefined、 null、 false、 ”、 0（包括 +0，-0）、 NaN 转换出来是 false，其他都是 true。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;隐式类型转换:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;凡是通过逻辑运算符 (&amp;amp;&amp;amp;、 ||、 !)、运算符 (+、-、*、/)、关系操作符 (&amp;gt;、 &amp;lt;、 &amp;lt;= 、&amp;gt;=)、相等运算符 (==) 或者 if/while 条件的操作，如果遇到两个数据类型不一样的情况，都会出现隐式类型转换。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;js对数据类的检测方式有哪些&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#js对数据类的检测方式有哪些&#34;&gt;#&lt;/a&gt; JS 对数据类的检测方式有哪些？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;typeof()&lt;br /&gt;
+instanceof()&lt;br /&gt;
+constructor&lt;br /&gt;
+Object.prototype.toString.call()&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;区别请移步 &lt;a href=&#34;https://blog.mengcodes.com/Web/Js/2023/09/04/2/&#34;&gt;Js 检测数据类型的方法和区别&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;闭包及特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#闭包及特点&#34;&gt;#&lt;/a&gt; 闭包及特点&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;什么是闭包？函数嵌套函数，内部函数被外部函数返回并保存下来时，就会产生闭包&lt;br /&gt;
+特点：可以重复利用变量，并且这个变量不会污染全局的一种机制；这个变量是一直保存在内存中，不会被垃圾回收机制回收&lt;br /&gt;
+缺点：闭包较多的时候，会消耗内存，导致页面的性能下降，在 IE 浏览器中才会导致内存泄漏&lt;br /&gt;
+使用场景：防抖，节流，函数嵌套函数避免全局污染，自执行的时候&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;前端的内存泄漏怎么理解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前端的内存泄漏怎么理解&#34;&gt;#&lt;/a&gt; 前端的内存泄漏怎么理解？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;JS 里已经分配内存地址的对象，但是由于长时间没有释放或者没办法清除，造成长期占用内存的现象，会让内存资源大幅浪费，最终导致运行速度慢，甚至崩溃的情况。&lt;br /&gt;
+垃圾回收机制&lt;br /&gt;
+因素：一些为生命直接赋值的变量；一些未清空的定时器；过度的闭包；一些引用元素没有被清除。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;事件委托是什么&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#事件委托是什么&#34;&gt;#&lt;/a&gt; 事件委托是什么？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;又叫事件代理，原理就是利用了事件冒泡的机制来实现，也就是说把子元素的事件绑定到了父元素的身上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;如果子元素阻止了事件冒泡，那么委托也就不成立，阻止事件冒泡：event.stopPropagation ()&lt;br /&gt;
+ 方式：addEventListener (&#39;click&#39;, 函数名，true/false) 默认是 false（事件冒泡），true（事件捕获）&lt;br /&gt;
+好处：提高性能，减少事件的绑定，也就减少了内存的占用。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;说一下原型链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#说一下原型链&#34;&gt;#&lt;/a&gt; 说一下原型链。&lt;/h2&gt;
+&lt;p&gt;原型就是一个普通对象，它是为构造函数的实例共享属性和方法；所有实例中引用的原型都是同一个对象&lt;br /&gt;
+使用 prototype 可以把方法挂在原型上，内存值保存一份&lt;br /&gt;
+__proto__可以理解为指针，实例对象中的属性，指向了构造函数的原型（prototype）&lt;br /&gt;
+10.new 操作符具体做了什么？&lt;br /&gt;
+1. 先创建一个空对象&lt;br /&gt;
+ 2. 把空对象和构造函数通过原型链进行链接&lt;br /&gt;
+ 3. 把构造函数的 this 绑定到新的空对象身上&lt;br /&gt;
+ 4. 根据构建函数返回的类型判断，如果是值类型，则返回对象，如果是引用类型，就要返回这个引用类型&lt;br /&gt;
+ 11.JS 是如何实现继承的？&lt;br /&gt;
+1. 原型链继承&lt;br /&gt;
+ 2. 借用构造函数继承&lt;br /&gt;
+ 3. 组合式继承&lt;br /&gt;
+ 4.ES6 的 class 类继承&lt;br /&gt;
+ 12.JS 的设计原理是什么？&lt;br /&gt;
+JS 引擎 运行上下文 调用栈 事件循环 回调&lt;br /&gt;
+ 13.JS 中关于 this 指向的问题&lt;br /&gt;
+ 1. 全局对象中的 this 指向&lt;br /&gt;
+指向的是 window&lt;br /&gt;
+2. 全局作用域或者普通函数中的 this&lt;br /&gt;
+ 指向全局 window&lt;br /&gt;
+3. this 永远指向最后调用它的那个对象&lt;br /&gt;
+在不是箭头函数的情况下&lt;br /&gt;
+ 4. new 关键词改变了 this 的指向&lt;br /&gt;
+ 5. apply,call,bind&lt;br /&gt;
+ 可以改变 this 指向，不是箭头函数&lt;br /&gt;
+ 6. 箭头函数中的 this&lt;br /&gt;
+ 它的指向在定义的时候就已经确定了&lt;br /&gt;
+箭头函数它没有 this, 看外层是否有函数，有就是外层函数的 this，没有就是 window&lt;br /&gt;
+7. 匿名函数中的 this&lt;br /&gt;
+ 永远指向了 window, 匿名函数的执行环境具有全局性，因此 this 指向 window&lt;br /&gt;
+14.script 标签里的 async 和 defer 有什么区别？&lt;br /&gt;
+当没有 async 和 defer 这两个属性的时候，&lt;br /&gt;
+浏览器会立刻加载并执行指定的脚本&lt;br /&gt;
+有 async&lt;br /&gt;
+ 加载和渲染后面元素的过程将和 script 的加载和执行并行进行（异步）&lt;br /&gt;
+有 defer&lt;br /&gt;
+ 加载和渲染后面元素的过程将和 script 的加载并行进行（异步），但是它的执行事件要等&lt;br /&gt;
+所有元素解析完成之后才会执行&lt;br /&gt;
+ 15.setTimeout 最小执行时间是多少？&lt;br /&gt;
+HTML5 规定的内容：&lt;br /&gt;
+setTimeout 最小执行时间是 4ms&lt;br /&gt;
+setInterval 最小执行时间是 10ms&lt;br /&gt;
+16.ES6 和 ES5 有什么区别？&lt;br /&gt;
+JS 的组成：ECMAScript BOM  DOM&lt;br /&gt;
+ES5:ECMAScript5,2009 年 ECMAScript 的第五次修订，ECMAScript2009&lt;br /&gt;
+ES6:ECMAScript6,2015 年 ECMAScript 的第六次修订，ECMAScript2015，是 JS 的下一个版本标准&lt;br /&gt;
+ 17.ES6 的新特性有哪些？&lt;br /&gt;
+1. 新增块级作用域（let,const）&lt;br /&gt;
+不存在变量提升&lt;br /&gt;
+存在暂时性死区的问题&lt;br /&gt;
+块级作用域的内容&lt;br /&gt;
+不能在同一个作用域内重复声明&lt;br /&gt;
+ 2. 新增了定义类的语法糖（class）&lt;br /&gt;
+3. 新增了一种基本数据类型（symbol）&lt;br /&gt;
+4. 新增了解构赋值&lt;br /&gt;
+从数组或者对象中取值，然后给变量赋值&lt;br /&gt;
+ 5. 新增了函数参数的默认值&lt;br /&gt;
+ 6. 给数组新增了 API&lt;br /&gt;
+7. 对象和数组新增了扩展运算符&lt;br /&gt;
+ 8.Promise&lt;br /&gt;
+ 解决回调地狱的问题。&lt;br /&gt;
+自身有 all,reject,resolve,race 方法&lt;br /&gt;
+原型上有 then,catch&lt;br /&gt;
+ 把异步操作队列化&lt;br /&gt;
+三种状态：pending 初始状态，fulfilled 操作成功，rejected 操作失败&lt;br /&gt;
+状态：pending -&amp;gt; fulfilled;pending -&amp;gt; rejected 一旦发生，状态就会凝固，不会再变&lt;br /&gt;
+ async  await&lt;br /&gt;
+ 同步代码做异步的操作，两者必须搭配使用&lt;br /&gt;
+ async 表明函数内有异步操作，调用函数会返回 promise&lt;br /&gt;
+await 是组成 async 的表达式，结果是取决于它等待的内容，如果是 promise 那就是 promise 的结果，如果是普通函数就进行链式调用&lt;br /&gt;
+ await 后的 promise 如果是 reject 状态，那么整个 async 函数都会中断，后面的代码不执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    9.新增了模块化（import,export）
+    10.新增了set和map数据结构
+        set就是不重复
+        map的key的类型不受限制
+    11.新增了generator
+    12.新增了箭头函数
+        不能作为构造函数使用，不能用new
+        箭头函数就没有原型
+        箭头函数没有arguments
+        箭头函数不能用call,apply,bind去改变this的执行
+        this指向外层第一个函数的this
+18.call,aply,bind三者有什么区别？
+    都是改变this指向和函数的调用，call和apply的功能类似，只是传参的方法不同
+    call方法传的是一个参数列表
+    apply传递的是一个数组
+    bind传参后不会立刻执行，会返回一个改变了this指向的函数，这个函数还是可以传参的，bind()()
+    call方法的性能要比apply好一些，所以call用的更多一点
+19.用递归的时候有没有遇到什么问题？
+    如果一个函数内可以调用函数本身，那么这个就是递归函数
+    函数内部调用自己
+    特别注意：写递归必须要有退出条件return
+20.如何实现一个深拷贝？
+    深拷贝就是完全拷贝一份新的对象，会在堆内存中开辟新的空间，拷贝的对象被修改后，原对象不受影响
+    主要针对的是引用数据类型
+    1.扩展运算符
+    2.JSON.parse(JSON.stringify())
+    3.利用递归函数实现
+21.说一下事件循环。
+    JS是一个单线程的脚本语言
+    主线程 执行栈 任务队列  宏任务 微任务
+    主线程先执行同步任务，然后才去执行任务队列里的任务，如果在执行宏任务之前有微任务，那么要先执行微任务
+    全部执行完之后等待主线程的调用，调用完之后再去任务队列中查看是否有异步任务，这样一个循环往复的过程就是事件循环！
+22.ajax是什么？怎么实现的？
+    创建交互式网页应用的网页开发技术
+        在不重新加载整个网页的前提下，与服务器交换数据并更新部分内容
+    通过XmlHttpRequest对象向服务器发送异步请求，然后从服务器拿到数据，最后通过JS操作DOM更新页面
+    1.创建XmlHttpRequest对象 xmh
+    2.通过xmh对象里的open()方法和服务器建立连接
+    3.构建请求所需的数据，并通过xmh对象的send()发送给服务器
+    4.通过xmh对象的onreadystate chansge事件监听服务器和你的通信状态
+    5.接收并处理服务器响应的数据结果
+    6.把处理的数据更新到HTML页面上
+23.get和post有什么区别？
+    1.get一般是获取数据，post一般是提交数据
+    2.get参数会放在url上，所以安全性比较差，post是放在body中
+    3.get请求刷新服务器或退回是没有影响的，post请求退回时会重新提交数据
+    4.get请求时会被缓存,post请求不会被缓存
+    5.get请求会被保存在浏览器历史记录中,post不会
+    6.get请求只能进行url编码，post请求支持很多种
+24.promise的内部原理是什么？它的优缺点是什么？
+    Promise对象，封装了一个异步操作并且还可以获取成功或失败的结果
+    Promise主要就是解决回调地狱的问题，之前如果异步任务比较多，同时他们之间有相互依赖的关系，
+    就只能使用回调函数处理，这样就容易形成回调地狱，代码的可读性差，可维护性也很差
+    有三种状态：pending初始状态  fulfilled成功状态  rejected失败状态
+    状态改变只会有两种情况，
+        pending -&amp;gt; fulfilled; pending -&amp;gt; rejected 一旦发生，状态就会凝固，不会再变
+    首先就是我们无法取消promise，一旦创建它就会立即执行，不能中途取消
+    如果不设置回调，promise内部抛出的测u哦呜就无法反馈到外面
+    若当前处于pending状态时，无法得知目前在哪个阶段。
+    原理：
+        构造一个Promise实例，实例需要传递函数的参数，这个函数有两个形参，分别都是函数类型，一个是resolve一个是reject
+        promise上还有then方法，这个方法就是来指定状态改变时的确定操作，resolve是执行第一个函数，reject是执行第二个函数
+25.promise和async await的区别是什么？
+    1.都是处理异步请求的方式
+    2.promise是ES6，async await 是ES7的语法
+    3.async await是基于promise实现的，他和promise都是非阻塞性的
+    优缺点：
+    1.promise是返回对象我们要用then，catch方法去处理和捕获异常，并且书写方式是链式，容易造成代码重叠，不好维护，async await 是通过tra catch进行捕获异常
+    2.async await最大的优点就是能让代码看起来像同步一样，只要遇到await就会立刻返回结果，然后再执行后面的操作
+    promise.then()的方式返回，会出现请求还没返回，就执行了后面的操作
+26.浏览器的存储方式有哪些？
+    1.cookies
+        H5标准前的本地存储方式
+        兼容性好，请求头自带cookie
+        存储量小，资源浪费，使用麻烦（封装）
+    2.localstorage
+        H5加入的以键值对为标准的方式
+        操作方便，永久存储，兼容性较好
+        保存值的类型被限定，浏览器在隐私模式下不可读取，不能被爬虫
+    3.sessionstorage
+        当前页面关闭后就会立刻清理，会话级别的存储方式
+    4.indexedDB
+        H5标准的存储方式，，他是以键值对进行存储，可以快速读取，适合WEB场景
+27.token存在sessionstorage还是loaclstorage？
+    token：验证身份的令牌，一般就是用户通过账号密码登录后，服务端把这些凭证通过加密等一系列操作后得到的字符串
+    1.存loaclstorage里，后期每次请求接口都需要把它当作一个字段传给后台
+    2.存cookie中，会自动发送，缺点就是不能跨域
+    如果存在localstorage中，容易被XSS攻击，但是如果做好了对应的措施，那么是利大于弊
+    如果存在cookie中会有CSRF攻击
+28.token的登录流程。
+    1.客户端用账号密码请求登录
+    2.服务端收到请求后，需要去验证账号密码
+    3.验证成功之后，服务端会签发一个token，把这个token发送给客户端
+    4.客户端收到token后保存起来，可以放在cookie也可以是localstorage
+    5.客户端每次向服务端发送请求资源的时候，都需要携带这个token
+    6.服务端收到请求，接着去验证客户端里的token，验证成功才会返回客户端请求的数据
+29.页面渲染的过程是怎样的？
+    DNS解析
+    建立TCP连接
+    发送HTTP请求
+    服务器处理请求
+    渲染页面
+        浏览器会获取HTML和CSS的资源，然后把HTML解析成DOM树
+        再把CSS解析成CSSOM
+        把DOM和CSSOM合并为渲染树
+        布局
+        把渲染树的每个节点渲染到屏幕上（绘制）
+    断开TCP连接
+30.DOM树和渲染树有什么区别？
+    DOM树是和HTML标签一一对应的，包括head和隐藏元素
+    渲染树是不包含head和隐藏元素
+31.精灵图和base64的区别是什么？
+    精灵图：把多张小图整合到一张大图上，利用定位的一些属性把小图显示在页面上，当访问页面可以减少请求，提高加载速度
+    base64：传输8Bit字节代码的编码方式，把原本二进制形式转为64个字符的单位，最后组成字符串
+    base64是会和html css一起下载到浏览器中，减少请求，减少跨域问题，但是一些低版本不支持，若base64体积比原图片大，不利于css的加载。
+32.svg格式了解多少？
+    基于XML语法格式的图像格式，可缩放矢量图，其他图像是基于像素的，SVG是属于对图像形状的描述，本质是文本文件，体积小，并且不管放大多少倍都不会失真
+    1.SVG可直接插入页面中，成为DOM一部分，然后用JS或CSS进行操作
+        &amp;lt;svg&amp;gt;&amp;lt;/svg&amp;gt;
+    2.SVG可作为文件被引入
+        &amp;lt;img src=&amp;quot;pic.svg&amp;quot; /&amp;gt;
+    3.SVG可以转为base64引入页面
+33.了解过JWT吗？
+    JSON Web Token 通过JSON形式作为在web应用中的令牌，可以在各方之间安全的把信息作为JSON对象传输
+    信息传输、授权
+    JWT的认证流程
+    1.前端把账号密码发送给后端的接口
+    2.后端核对账号密码成功后，把用户id等其他信息作为JWT 负载，把它和头部分别进行base64编码拼接后签名，形成一个JWT（token）。
+    3.前端每日请求时都会把JWT放在HTTP请求头的Authorization字段内
+    4.后端检查是否存在，如果存在就验证JWT的有效性（签名是否正确，token是否过期）
+    5.验证通过后后端使用JWT中包含的用户信息进行其他的操作，并返回对应结果
+    简洁、包含性、因为Token是JSON加密的形式保存在客户端，所以JWT是跨语言的，原则上是任何web形式都支持。
+34.npm的底层环境是什么？
+    node package manager,node的包管理和分发工具，已经成为分发node模块的标准，是JS的运行环境
+    npm的组成：网站、注册表、命令行工具
+35.HTTP协议规定的协议头和请求头有什么？
+    1.请求头信息：
+        Accept:浏览器告诉服务器所支持的数据类型
+        Host:浏览器告诉服务器我想访问服务器的哪台主机
+        Referer:浏览器告诉服务器我是从哪里来的（防盗链）
+        User-Agent:浏览器类型、版本信息
+        Date:浏览器告诉服务器我是什么时候访问的
+        Connection:连接方式
+        Cookie
+        X-Request-With:请求方式
+    2.响应头信息：
+        Location:这个就是告诉浏览器你要去找谁
+        Server:告诉浏览器服务器的类型
+        Content-Type:告诉浏览器返回的数据类型
+        Refresh:控制了的定时刷新
+36.说一下浏览器的缓存策略。
+    强缓存（本地缓存）、协商缓存（弱缓存）
+    强缓：不发起请求，直接使用缓存里的内容，浏览器把JS，CSS，image等存到内存中，下次用户访问直接从内存中取，提高性能
+    协缓：需要像后台发请求，通过判断来决定是否使用协商缓存，如果请求内容没有变化，则返回304，浏览器就用缓存里的内容
+    强缓存的触发：
+        HTTP1.0:时间戳响应标头
+        HTTP1.1:Cache-Control响应标头
+    协商缓存触发：
+        HTTP1.0:请求头：if-modified-since 响应头：last-modified
+        HTTP1.1:请求头：if-none-match 响应头：Etag
+37.说一下什么是“同源策略”？
+    http:// www.  aaa.com:8080/index/vue.js
+    协议    子域名 主域名  端口号     资源
+    同源策略是浏览器的核心，如果没有这个策略就会遭受网络攻击
+    主要指的就是协议+域名+端口号三者一致，若其中一个不一样则不是同源，会产生跨域
+    三个允许跨域加载资源的标签：img  link  script
+    跨域是可以发送请求，后端也会正常返回结果，只不过这个结果被浏览器拦截了！
+    JSONP
+    CORS
+    websocket
+    反向代理
+38.防抖和节流是什么？
+    都是应对页面中频繁触发事件的优化方案
+    防抖:避免事件重复触发
+    使用场景:1.频繁和服务端交互 2.输入框的自动保存事件
+    节流:把频繁触发的事件减少,每隔一段时间执行
+    使用场景:scroll事件
+39.解释一下什么是json？
+    JSON是一种纯字符串形式的数据，它本身不提供任何方法，适合在网络中进行传输
+    JSON数据存储在.json文件中，也可以把JSON数据以字符串的形式保存在数据库、Cookise中
+    JS提供了JSON.parse() JSON.stringify()
+    什么时候使用json：定义接口；序列化；生成token；配置文件package.json
+40.当数据没有请求过来的时候，该怎么做？
+    可以在渲染数据的地方给一些默认的值
+    if判断语句
+41.有没有做过无感登录？
+    1.在相应其中拦截，判断token返回过期后，调用刷新token的接口
+    2.后端返回过期时间，前端判断token的过期时间，去调用刷新token的接口
+    3.写定时器，定时刷新token接口
+    流程：
+        1.登录成功后保存token 和 refresh_token
+        2.在响应拦截器中对401状态码引入刷新token的api方法调用
+        3.替换保存本地新的token
+        4.把错误对象里的token替换
+        5.再次发送未完成的请求
+        6.如果refresh_token过期了，判断是否过期，过期了就清楚所有token重新登录
+42.大文件上传是怎么做的？
+    分片上传：
+        1.把需要上传的文件按照一定的规则，分割成相同大小的数据块
+        2.初始化一个分片上传任务，返回本次分片上传的唯一标识
+        3.按照一定的规则把各个数据块上传
+        4.发送完成后，服务端会判断数据上传的完整性，如果完整，那么就会把数据库合并成原始文件
+    断点续传：
+        服务端返回，从哪里开始  浏览器自己处理
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;三、HTML5CSS3&lt;br /&gt;
+1. 语义化的理解。&lt;br /&gt;
+在写 HTML 页面结构时所用的标签有意义&lt;br /&gt;
+头部用 head  主体用 main  底部用 foot...&lt;br /&gt;
+ 怎么判断页面是否语义化了？&lt;br /&gt;
+把 CSS 去掉，如果能够清晰的看出来页面结构，显示内容较为正常&lt;br /&gt;
+为什么要选择语义化？&lt;br /&gt;
+1. 让 HTML 结构更加清晰明了&lt;br /&gt;
+ 2. 方便团队协作，利于开发&lt;br /&gt;
+ 3. 有利于爬虫和 SEO&lt;br /&gt;
+4. 能够让浏览器更好的去解析代码&lt;br /&gt;
+ 5. 给用户带来良好的体验&lt;br /&gt;
+ 2.H5C3 有哪些新特性？&lt;br /&gt;
+H5 的新特性：&lt;br /&gt;
+1. 语义化的标签&lt;br /&gt;
+ 2. 新增音频视频&lt;br /&gt;
+ 3. 画布 canvas&lt;br /&gt;
+4. 数据存储 localstorage sessionstorage&lt;br /&gt;
+5. 增加了表单控件 email url search...&lt;br /&gt;
+6. 拖拽释放 API&lt;br /&gt;
+CSS3 的新特性：&lt;br /&gt;
+1. 新增选择器：属性选择器、伪类选择器、伪元素选择器&lt;br /&gt;
+ 2. 增加了媒体查询&lt;br /&gt;
+ 3. 文字阴影&lt;br /&gt;
+ 4. 边框&lt;br /&gt;
+ 5. 盒子模型 box-sizing&lt;br /&gt;
+6. 渐变&lt;br /&gt;
+ 7. 过度&lt;br /&gt;
+ 8. 自定义动画&lt;br /&gt;
+ 9. 背景的属性&lt;br /&gt;
+ 10.2D 和 3D&lt;br /&gt;
+3.rem 是如何做适配的？&lt;br /&gt;
+rem 是相对长度，相对于根元素（html）的 font-size 属性来计算大小，通常来做移动端的适配&lt;br /&gt;
+ rem 是根据根元素 font-size 计算值的倍数&lt;br /&gt;
+比如 html 上的 font-size:16px，给 div 设置宽为 1.5rem,1.2rem = 16px*1.2 = 19.2px.&lt;br /&gt;
+4. 解决了哪些移动端的兼容问题？&lt;br /&gt;
+1. 当设置样式 overflow:scroll/auto 时，IOS 上的华东会卡顿&lt;br /&gt;
+ - webkit-overflow-scrolling:touch;&lt;br /&gt;
+2. 在安卓环境下 placeholder 文字设置行高时会偏上&lt;br /&gt;
+ input 有 placeholder 属性的时候不要设置行高&lt;br /&gt;
+ 3. 移动端字体小于 12px 时异常显示&lt;br /&gt;
+应该先把在整体放大一倍，然后再用 transform 进行缩小&lt;br /&gt;
+ 4.ios 下 input 按钮设置了 disabled 属性为 true 显示异常&lt;br /&gt;
+ input&lt;span&gt;typy=button&lt;/span&gt;{&lt;br /&gt;
+opcity:1&lt;br /&gt;
+}&lt;br /&gt;
+ 5. 安卓手机下取消语音输入按钮&lt;br /&gt;
+ input::-webkit-input-speech-button {&lt;br /&gt;
+display:none&lt;br /&gt;
+}&lt;br /&gt;
+ 6.IOS 下取消 input 输入框在输入引文首字母默认大写&lt;br /&gt;
+ &amp;lt;input autocapitalize=&#39;off&#39; autocorrect=&#39;off&#39;/&amp;gt;&lt;br /&gt;
+7. 禁用 IOS 和安卓用户选中文字&lt;br /&gt;
+添加全局 CSS 样式：-webkit-user-select:none&lt;br /&gt;
+8. 禁止 IOS 弹出各种窗口&lt;br /&gt;
+ - webkit-touch-callout:none&lt;br /&gt;
+9. 禁止 IOS 识别长串数字为电话&lt;br /&gt;
+添加 meta 属性 &amp;lt;meta conten=&#39;telephone=no&#39; name=&#39;format-detection&#39;&amp;gt;&lt;/p&gt;
+&lt;p&gt;四、Vue&lt;br /&gt;
+1.v-if 和 v-show 的区别？&lt;br /&gt;
+都可以控制元素的显示和隐藏&lt;br /&gt;
+ 1.v-show 时控制元素的 display 值来让元素显示和隐藏；v-if 显示隐藏时把 DOM 元素整个添加和删除&lt;br /&gt;
+ 2.v-if 有一个局部编译 / 卸载的过程，切换这个过程中会适当的销毁和重建内部的事件监听和子组件；v-show 只是简单的 css 切换&lt;br /&gt;
+ 3.v-if 才是真正的条件渲染；v-show 从 false 变成 true 的时候不会触发组件的声明周期，v-if 会触发声明周期&lt;br /&gt;
+ 4.v-if 的切换效率比较低  v-show 的效率比较高&lt;br /&gt;
+ 2. 如何理解 MVVM 的？&lt;br /&gt;
+是 Model-View-ViewModel 的缩写。前端开发的架构模式&lt;br /&gt;
+ M：模型，对应的就是 data 的数据&lt;br /&gt;
+ V：视图，用户界面，DOM&lt;br /&gt;
+VM：视图模型：Vue 的实例对象，连接 View 和 Model 的桥梁&lt;br /&gt;
+核心是提供对 View 和 ViewModel 的双向数据绑定，当数据改变的时候，ViewModel 能监听到数据的变化，自动更新视图，当用户操作视图的时候，ViewModel 也可以监听到视图的变化，然后通知数据进行改动，这就实现了双向数据绑定&lt;br /&gt;
+ ViewModel 通过双向绑定把 View 和 Model 连接起来，他们之间的同步是自动的，不需要认为干涉，所以我们只需要关注业务逻辑即可，不需要操作 DOM，同时也不需要关注数据的状态问题，因为她是由 MVVM 统一管理&lt;br /&gt;
+ 3.v-for 中的 key 值的作用是什么？&lt;br /&gt;
+key 属性是 DOM 元素的唯一标识&lt;br /&gt;
+作用：&lt;br /&gt;
+1. 提高虚拟 DOM 的更新&lt;br /&gt;
+ 2. 若不设置 key，可能会触发一些 bug&lt;br /&gt;
+3. 为了触发过度效果&lt;br /&gt;
+ 4. 说一下你对 vue 生命周期的理解。&lt;br /&gt;
+组件从创建到销毁的过程就是它的生命周期&lt;br /&gt;
+创建&lt;br /&gt;
+ beforeCreat&lt;br /&gt;
+ 在这个阶段属性和方法都不能使用&lt;br /&gt;
+ created&lt;br /&gt;
+ 这里时实例创建完成之后，在这里完成了数据监测，可以使用数据，修改数据，不会触发 updated，也不会更新视图&lt;br /&gt;
+挂载&lt;br /&gt;
+ beforeMount&lt;br /&gt;
+ 完成了模板的编译，虚拟 DOM 也完成创建，即将渲染，修改数据，不会触发 updated&lt;br /&gt;
+Mounted&lt;br /&gt;
+ 把编译好的模板挂载到页面，这里可以发送异步请求也可以访问 DOM 节点&lt;br /&gt;
+更新&lt;br /&gt;
+ beforeUpdate&lt;br /&gt;
+ 组件数据更新之前使用，数据是新的，页面上的数据时旧的，组件即将更新，准备渲染，可以改数据&lt;br /&gt;
+ updated&lt;br /&gt;
+render 重新做了渲染，这时数据和页面都是新的，避免在此更新数据&lt;br /&gt;
+销毁&lt;br /&gt;
+ beforeDestroy&lt;br /&gt;
+ 实例销毁前，在这里实例还可以用，可以清楚定时器等等&lt;br /&gt;
+ destroyed&lt;br /&gt;
+ 组件已经被销毁了，全部都销毁&lt;br /&gt;
+使用了 keep-alive 时多出两个周期：&lt;br /&gt;
+activited&lt;br /&gt;
+ 组件激活时&lt;br /&gt;
+ deactivited&lt;br /&gt;
+ 组件被销毁时&lt;br /&gt;
+ 5. 在 created 和 mounted 去请求数据，有什么区别？&lt;br /&gt;
+created：在渲染前调用，通常先初始化属性，然后做渲染&lt;br /&gt;
+ mounted：在模板渲染完成后，一般都是初始化页面后，在对元素节点进行操作&lt;br /&gt;
+在这里请求数据可能会出现闪屏的问题，created 里不会&lt;br /&gt;
+一般用 created 比较多&lt;br /&gt;
+请求的数据对 DOM 有影响，那么使用 created&lt;br /&gt;
+ 如果请求的数据对 DOM 无关，可以放在 mounted&lt;br /&gt;
+6.vue 中的修饰符有哪些？&lt;br /&gt;
+1. 事件修饰符&lt;br /&gt;
+.stop       组织冒泡&lt;br /&gt;
+.prevent    组织默认行为&lt;br /&gt;
+.capture    内部元素触发的事件先在次处理&lt;br /&gt;
+.self       只有在 event.target 是当前元素时触发&lt;br /&gt;
+.once       事件只会触发一次&lt;br /&gt;
+.passive    立即触发默认行为&lt;br /&gt;
+.native     把当前元素作为原生标签看待&lt;br /&gt;
+ 2. 按键修饰符&lt;br /&gt;
+.keyup      键盘抬起&lt;br /&gt;
+.keydown    键盘按下&lt;br /&gt;
+ 3. 系统修饰符&lt;br /&gt;
+.ctrl&lt;br /&gt;
+.alt&lt;br /&gt;
+.meta&lt;br /&gt;
+4. 鼠标修饰符&lt;br /&gt;
+.left       鼠标左键&lt;br /&gt;
+.right      鼠标右键&lt;br /&gt;
+.middle     鼠标中键&lt;br /&gt;
+ 5. 表单修饰符&lt;br /&gt;
+.lazy       等输入完之后再显示&lt;br /&gt;
+.trim       删除内容前后的空格&lt;br /&gt;
+.number     输入是数字或转为数字&lt;br /&gt;
+ 7.elementui 是怎么做表单验证的？&lt;br /&gt;
+1. 在表单中加 rules 属性，然后再 data 里写校验规则&lt;br /&gt;
+ 2. 内部添加规则&lt;br /&gt;
+ 3. 自定义函数校验&lt;br /&gt;
+ 8.vue 如何进行组件通信？&lt;br /&gt;
+1. 父传子&lt;br /&gt;
+ props&lt;br /&gt;
+ 父组件使用自定义属性，然后子组件使用 props&lt;br /&gt;
+&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mtext&gt;引用信息会注册在父组件的&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;ref
+                引用信息会注册在父组件的&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;引&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;信&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;息&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;会&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;注&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;册&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;在&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;父&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; refs 对象上&lt;br /&gt;
+ 2. 子传父&lt;br /&gt;
+&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mtext&gt;子组件绑定自定义事件，触发执行后，传给父组件，父组件需要用事件监听来接收参数&lt;/mtext&gt;&lt;mn&gt;3.&lt;/mn&gt;&lt;mtext&gt;兄弟传&lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mtext&gt;一个新的&lt;/mtext&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mtext&gt;实例，用&lt;/mtext&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mtext&gt;和&lt;/mtext&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mtext&gt;来对数据进行传输&lt;/mtext&gt;&lt;mn&gt;4.&lt;/mn&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mtext&gt;传值&lt;/mtext&gt;&lt;mn&gt;9.&lt;/mn&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mtext&gt;是什么？怎么使用？&lt;/mtext&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mtext&gt;的一个内置组件，包裹组件的时候，会缓存不活跃的组件实例，并不是销毁他们作用：把组件切换的状态保存在内存里，防止重复渲染&lt;/mtext&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mtext&gt;节点，减少加载时间和性能消耗，提高用户体验&lt;/mtext&gt;&lt;mn&gt;10.&lt;/mn&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mtext&gt;是怎么做封装的？下载创建实例接着封装请求响应拦截器抛出最后封装接口&lt;/mtext&gt;&lt;mn&gt;11.&lt;/mn&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mtext&gt;路由时怎么传参的？&lt;/mtext&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mtext&gt;传参&lt;/mtext&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;.&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;emit
+                子组件绑定自定义事件，触发执行后，传给父组件，父组件需要用事件监听来接收参数
+        3.兄弟传
+            new一个新的vue实例，用on和emit来对数据进行传输
+        4.vuex传值
+    9.keep-alive是什么？怎么使用？
+        Vue的一个内置组件，包裹组件的时候，会缓存不活跃的组件实例，并不是销毁他们
+        作用：把组件切换的状态保存在内存里，防止重复渲染DOM节点，减少加载时间和性能消耗，提高用户体验
+    10.axios是怎么做封装的？
+        下载 创建实例 接着封装请求响应拦截器  抛出 最后封装接口
+    11.vue路由时怎么传参的？
+        params传参
+            this.&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;子&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;绑&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;定&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;自&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;定&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;义&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;事&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;触&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;发&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;执&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;行&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;后&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;传&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;给&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;父&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;父&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;需&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;要&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;事&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;监&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;听&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;来&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;接&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;收&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;参&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;数&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;兄&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;弟&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;传&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02691em;&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;一&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;个&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;新&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;实&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;例&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;和&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;来&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;对&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;数&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;据&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;进&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;行&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;传&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;输&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;传&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;值&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.01968em;&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;是&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;什&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;么&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;？&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;怎&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;么&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;使&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;？&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.22222em;&#34;&gt;V&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;一&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;个&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;内&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;置&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;包&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;裹&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;时&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;候&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;会&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;缓&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;存&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;不&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;活&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;跃&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;实&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;例&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;并&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;不&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;是&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;销&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;毁&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;他&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;们&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;作&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;：&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;把&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;组&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;件&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;切&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;换&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;状&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;态&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;保&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;存&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;在&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;内&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;存&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;里&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;防&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;止&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;重&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;复&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;渲&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;染&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;D&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;节&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;点&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;减&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;少&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;加&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;载&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;时&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;间&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;和&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;性&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;能&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;消&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;耗&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;提&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;高&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;用&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;户&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;体&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;验&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;是&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;怎&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;么&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;做&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;封&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;装&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;？&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;下&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;载&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;创&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;建&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;实&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;例&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;接&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;着&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;封&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;装&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;请&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;求&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;响&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;应&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;拦&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;截&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;器&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;抛&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;出&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;最&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;后&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;封&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;装&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;接&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;口&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;路&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;由&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;时&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;怎&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;么&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;传&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;参&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;的&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;？&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;传&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;参&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;router.push({name:&#39;index&#39;,params:{id:item.id}})&lt;br /&gt;
+this.&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;.&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;.&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mtext&gt;路由属性传参&lt;/mtext&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;.&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;route.params.id
+        路由属性传参
+            this.&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;路&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;由&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;属&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;性&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;传&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;参&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;router.push({name:&#39;/index/{item.id}&#39;})
+            路由配置 { path:&#39;/index:id&#39; }
+        query传参（可以解决页面刷新参数丢失的问题）
+            this.router.push({&lt;br /&gt;
+name:&#39;index&#39;,&lt;br /&gt;
+query:{id:item.id}&lt;br /&gt;
+})&lt;br /&gt;
+ 12.vue 路由的 hash 模式和 history 模式有什么区别？&lt;br /&gt;
+1.hash 的路由地址上有 #号，history 模式没有&lt;br /&gt;
+ 2. 在做回车刷新的时候，hash 模式会加载对应页面，history 会报错 404&lt;br /&gt;
+3.hash 模式支持低版本浏览器，history 不支持，因为是 H5 新增的 API&lt;br /&gt;
+4.hash 不会重新加载页面，单页面应用必备&lt;br /&gt;
+ 5.history 有历史记录，H5 新增了 pushState 和 replaceState () 去修改历史记录，并不会立刻发送请求&lt;br /&gt;
+ 6.history 需要后台配置&lt;br /&gt;
+ 13. 路由拦截是怎么实现的？&lt;br /&gt;
+路由拦截 axios 拦截&lt;br /&gt;
+需要在路由配置中添加一个字段，它是用于判断路由是否需要拦截&lt;br /&gt;
+ {&lt;br /&gt;
+name:&#39;index&#39;,&lt;br /&gt;
+path:&#39;/index&#39;,&lt;br /&gt;
+component:Index,&lt;br /&gt;
+meta:{&lt;br /&gt;
+requirtAuth:true&lt;br /&gt;
+}&lt;br /&gt;
+}&lt;br /&gt;
+router.beforeEach((to,from,next) =&amp;gt; {&lt;br /&gt;
+if(to.meta.requirtAuth){&lt;br /&gt;
+if( store.satte.token ){&lt;br /&gt;
+next()&lt;br /&gt;
+}else{&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;            &amp;#125;
+        &amp;#125;
+    &amp;#125;)
+14.说一下vue的动态路由。
+    要在路由配置里设置meat属性，扩展权限相关的字段，在路由导航守卫里通过判断这个权限标识，实现路由的动态增加和跳转
+    根据用户登录的账号，返回用户角色
+    前端再根据角色，跟路由表的meta.role进行匹配
+    把匹配搭配的路由形成可访问的路由
+15.如何解决刷新后二次加载路由？
+    1.window.location.reload()
+    2.matcher
+        const router = createRouter()
+        export function resetRouter()&amp;#123;
+            const newRouter = creatRouter()
+            router.matcher = newRouter.matcher
+        &amp;#125;
+16.vuex刷新数据会丢失吗？怎么解决？
+    vuex肯定会重新获取数据，页面也会丢失数据
+    1.把数据直接保存在浏览器缓存里（cookie  localstorage  sessionstorage）
+    2.页面刷新的时候，再次请求数据，达到可以动态更新的方法
+        监听浏览器的刷新书简，在刷新前把数据保存到sessionstorage里，刷新后请求数据，请求到了用vuex，如果没有那就用sessionstorage里的数据
+17.computed和watch的区别？
+    1.computed是计算属性，watch是监听，监听的是data中数据的变化
+    2.computed是支持缓存，依赖的属性值发生变化，计算属性才会重新计算，否则用缓存；watch不支持缓存
+    3.computed不支持异步，watch是可以异步操作
+    4.computed是第一次加载就监听，watch是不监听
+    5.computed函数中必须有return  watch不用
+18.vuex在什么场景会去使用？属性有哪些？
+    state       存储变量
+    getters     state的计算属性
+    mutations   提交更新数据的方法
+    actions     和mutations差不多，他是提交mutations来修改数据，可以包括异步操作
+    modules     模块化vuex
+    使用场景：
+        用户的个人信息、购物车模块、订单模块
+19.vue的双向数据绑定原理是什么？
+    通过数据劫持和发布订阅者模式来实现，同时利用Object.defineProperty()劫持各个属性的setter和getter，
+    在数据发生改变的时候发布消息给订阅者，触发对应的监听回调渲染视图，也就是说数据和视图时同步的，数据发生改变，视图跟着发生改变，视图改变，数据也会发生改变。
+    第一步：需要observer的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter
+    第二步：compile模板解析指令，把模板中的变量替换成数据，然后初始化渲染视图，同时把每个指令对应的节点绑定上更新函数，添加订阅者，如果数据变化，收到通知，更新视图
+    第三步：Watcher订阅者是Observer和Compile之间的通信桥梁，作用：
+            1.在自身实例化的时候忘订阅器内添加自己
+            2.自身要有一个update()方法
+            3.等待属性变动时，调用自身的update方法，触发compile这种的回调
+    第四步：MVVM作为数据绑定的入口，整合了observer、compile和watcher三者，通过observer来监听自己的数据变化，通过compile解析模板指令，最后利用watcher把observer和compile联系起来，最终达到数据更新视图更新，视图更新数据更新的效果
+20.了解diff算法和虚拟DOM吗？
+    虚拟DOM，描述元素和元素之间的关系，创建一个JS对象
+    如果组件内有响应的数据，数据发生改变的时候，render函数会生成一个新的虚拟DOM，这个新的虚拟DOM会和旧的虚拟DOM进行比对，找到需要修改的虚拟DOM内容，然后去对应的真实DOM中修改
+    diff算法就是虚拟DOM的比对时用的，返回一个patch对象，这个对象的作用就是存储两个节点不同的地方，最后用patch里记录的信息进行更新真实DOM
+    步骤：
+        1.JS对象表示真实的DOM结构，要生成一个虚拟DOM，再用虚拟DOM构建一个真实DOM树，渲染到页面
+        2.状态改变生成新的虚拟DOM，跟就得虚拟DOM进行比对，这个比对的过程就是DIFF算法，利用patch记录差异
+        3.把记录的差异用在第一个虚拟DOM生成的真实DOM上，视图就更新了。
+21.vue和jquery的区别是什么？
+    1.原理不同
+        vue就是数据绑定；jq是先获取dom再处理
+    2.着重点不同
+        vue是数据驱动，jq是着重于页面
+    3.操作不同
+    4.未来发展不同
+22.vuex的响应式处理。
+    vuex是vue的状态管理工具
+    vue中可以直接触发methods中的方法，vuex是不可以的。未来处理异步，当触发事件的时候，会通过dispatch来访问actions中的方法，actions中的commit会触发mutations中的方法从而修改state里的值，通过getter把数据更新到视图
+    Vue.use(vuex)，调用install方法，通过applyMixin(vue)在任意组件内执行this.$store就可以访问到store对象。
+    vuex的state是响应式的，借助的就是vue的data，把state存到vue实例组件的data中
+23.vue中遍历全局的方法有哪些？
+    1.普通遍历，对象.forEach()
+        arr.forEach(function(item,index,arr)&amp;#123;
+            console.log(item,index)
+        &amp;#125;)
+    2.对元素统一操作  对象.map()
+        var newarr = arr.map(function(item)&amp;#123;
+            return item+1
+        &amp;#125;)
+    3.查找符合条件的元素 对象.filter()
+        arr.filter(function(item)&amp;#123;
+            if(item &amp;gt; 2)&amp;#123;
+                return false
+            &amp;#125;else&amp;#123;
+                return true
+            &amp;#125;
+        &amp;#125;)
+    4.查询符合条件的元素，返回索引 对象.findindex()
+        arr.finindex(function(item)&amp;#123;
+            if(item&amp;gt;1)&amp;#123;
+                return true
+            &amp;#125;else&amp;#123;
+                return false
+            &amp;#125;
+        &amp;#125;)
+    对象.evening()  遇到不符合的对象会停止
+    对象.some()  找到符合条件的元素就停止
+24.如何搭建脚手架？
+    下载：node  cnpm  webpack vue-cli
+    创建项目：
+        1.找到对应的文件，然后利用node指令创建（cmd）
+        2.vue init webpack xxxx
+        3.回车项目描述
+        4.作者回车
+        5.选择vue build
+        6.回车
+        7.输入n
+        8.不按照yarn
+        9.输入npm run dev
+25.如何封装一个组件？
+    1.使用Vue.extend()创建一个组件
+    2.使用Vue.components()方法注册组件
+    3.如果子组件需要数据，可以在props中接收定义
+    4.子组件修改好数据，要把数据传递给父组件，可以用emit()方法
+    原则：
+        把功能拆开
+        尽量让组件原子化，一个组件做一件事情
+        容器组件管数据，展示组件管视图
+26.封装一个可复用的组件，需要满足什么条件？
+    1.低耦合，组件之间的依赖越小越好
+    2.最好从父级传入信息，不要在公共组件中请求数据
+    3.传入的数据要进行校验
+    4.处理事件的方法写在父组件中
+27.vue的过滤器怎么使用？
+    vue的特性，用来对文本进行格式化处理
+    使用它的两个地方，一个是插值表达式，一个是v-bind
+    分类：
+        1.全局过滤器
+            Vue.filter(&#39;add&#39;,function(v)&amp;#123;
+                return v &amp;lt; 10 ? &#39;0&#39; + v : v
+            &amp;#125;)
+            &amp;lt;div&amp;gt;&amp;#123;&amp;#123;33 | add&amp;#125;&amp;#125;&amp;lt;/div&amp;gt;
+        2.本地过滤器
+            和methods同级
+            filter:&amp;#123;
+                add:function(v)&amp;#123;
+                    return v &amp;lt; 10 ? &#39;0&#39; + v : v
+                &amp;#125;
+            &amp;#125;
+28.vue中如何做强制刷新？
+    1.localtion.reload()
+    2.this.$router.go(0)
+    3.provide和inject
+29.vue3和vue2有哪些区别？
+    1.双向数据绑定的原理不同
+    2.是否支持碎片
+    3.API不同
+    4.定义数据变量方法不同
+    5.生命周期的不同
+    6.传值不同
+    7.指令和插槽不同
+    8.main.js不同
+30.vue的性能优化怎么做？
+    1.编码优化
+        不要把所有数据都放在data中
+        v-for时给每个元素绑定事件用事件代理
+        keep-alive缓存组件
+        尽可能拆分组件，提高复用性、维护性
+        key值要保证唯一
+        合理使用路由懒加载，异步组件
+        数据持久化存储的使用尽量用防抖、节流优化
+    2.加载优化
+        按需加载
+        内容懒加载
+        图片懒加载
+    3.用户体验
+        骨架屏
+    4.SEO优化
+        预渲染
+        服务端渲染ssr
+    5.打包优化
+        CDN形式加载第三方模块
+        多线程打包
+        抽离公共文件
+    6.缓存和压缩
+        客户端缓存、服务端缓存
+        服务端Gzip压缩
+31.首屏优化该如何去做？
+    1.使用路由懒加载
+    2.非首屏组件使用异步组件
+    3.首屏不中要的组件延迟加载
+    4.静态资源放在CDN上
+    5.减少首屏上JS、CSS等资源文件的大小
+    6.使用服务端渲染
+    7.简历减少DOM的数量和层级
+    8.使用精灵图请求
+    9.做一些loading
+    10.开启Gzip压缩
+    11.图片懒加载
+32.vue3的性能为什么比vue2好？
+    1.diff算法的优化
+    2.静态提升
+    3.事件侦听缓存
+33.vue3为什么使用proxy？
+    1.proxy可以代理整个对象，defineproperty只代理对象上的某个属性
+    2.proxy对代理对象的监听更加丰富
+    3.proxy代理对象会生成新的对象，不会修改被代理对象本身
+    4.proxy补兼容ie浏览器
+34.说一下你对组件的理解。
+    可以重复使用的vue实例，独一无二的组件名称
+    可以抽离单独的公共模块
+    提高代码的复用率
+35.你是如何规划项目文件的？
+    public
+        图标、index.html、img
+    src
+        api
+        assets
+        components
+            按分类再次划分子目录
+        plugins
+        router
+        static
+        styles
+        utils
+        views
+    App.vue
+    main.js
+    package.json
+    vue.config.js
+36.是否使用过nuxt.js？
+    是基于vue的应用框架，关注的是渲染，可以开发服务端渲染应用的配置
+    SSR：服务端渲染
+        好处：
+            SSR生成的是有内容的HTML页面，有利于搜索引擎的搜索
+            优化了首屏加载时间
+    SEO：优化搜索引擎
+    SPA的应用不利于搜索引擎SEO的操作
+37.SEO如何优化？
+    1.SSR
+    2.预渲染 prerender-spa-plugin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;五、Echarts&lt;br /&gt;
+1.echarts 有用过吗？常用的组件有哪些？&lt;br /&gt;
+title 标题组件 show  text  link&lt;br /&gt;
+toolbox 工具栏 导出图片 数据视图 切换 缩放 show orient feature&lt;br /&gt;
+tooltip tigger 触发类型&lt;br /&gt;
+ markPoint 标注点&lt;br /&gt;
+ markLine 图标的标线&lt;/p&gt;
+&lt;p&gt;六、Uni-APP&lt;br /&gt;
+1.uni-app 有没有做过分包？&lt;br /&gt;
+优化小程序的下载和启动速度&lt;br /&gt;
+小程序启动默认下载主包并启动页面，当用户进入分包时，才会下载对应的分包，下载完进行展示&lt;/p&gt;
+&lt;p&gt;七、Weabpack&lt;br /&gt;
+1.webpack 打包和不打包的区别？&lt;br /&gt;
+1. 运行效率&lt;br /&gt;
+ 2. 对基础的支持不够&lt;br /&gt;
+ 2.webpack 是怎么打包的，babel 是做什么的？&lt;br /&gt;
+webpack 会把 js css image 看作一个模块，用 import/require 引入&lt;br /&gt;
+找到入口文件，通过入口文件找到关联的依赖文件，把他们打包到一起&lt;br /&gt;
+把 bundle 文件，拆分成多个小的文件，异步按需加载所需要的文件&lt;br /&gt;
+如果一个被多个文件引用，打包时只会生成一个文件&lt;br /&gt;
+如果引用的文件没有调用，不会打包，如果引入的变量和方法没有调用也不会打包&lt;br /&gt;
+对于多个入口文件，加入引入了相同的代码，可以用插件把他抽离到公共文件中&lt;/p&gt;
+&lt;p&gt;八、Git&lt;br /&gt;
+1.git 如何合并、拉取代码？&lt;br /&gt;
+拉取代码 git pull &#39; 仓库地址&#39;&lt;br /&gt;
+ 查看状态 git sattus&lt;br /&gt;
+ 提交到本地缓存区  git add .&lt;br /&gt;
+ 提交本地仓库 git commit -m &#39; 修改描述&#39;&lt;br /&gt;
+ 提交到远程仓库 git push &#39; 仓库地址 &#39; master&lt;br /&gt;
+ 创建分支 git branch -b xxx&lt;br /&gt;
+ 合并分支 git merge &#39; 合并分支的名字&#39;&lt;br /&gt;
+2.git 如何解决冲突问题？&lt;br /&gt;
+1. 两个分支中修改了同一个文件&lt;br /&gt;
+ 2. 两个分支中修改了同一个文件的名字&lt;br /&gt;
+ 1. 解决：当前分支上，直接修改代码  add  commit&lt;br /&gt;
+2. 解决：在本地当前分支上，修改冲突代码 add commit push&lt;/p&gt;
+&lt;p&gt;九、HR&lt;br /&gt;
+1. 你的离职原因是什么？&lt;br /&gt;
+疫情 社保 薪资问题 个人发展 技术提升 家庭因素&lt;br /&gt;
+ 2. 工作到现在，项目中遇到最难的问题是什么？怎么解决的？&lt;br /&gt;
+1. 不要回答，没有问题&lt;br /&gt;
+ 2. 不要说一些常见的简单的问题，比如：数据请求不过来、渲染页面时出现了问题、跳转路由不会...&lt;br /&gt;
+ 首先应该时自行去查找资料寻求解决办法，然后再去请教同时或者组长&lt;br /&gt;
+ 3. 你的优势在哪里？&lt;br /&gt;
+1. 尽量不要暴露自己的缺点&lt;br /&gt;
+ 2. 不要过度美化自己&lt;br /&gt;
+ 4. 如何协同工作？&lt;br /&gt;
+1. 开发前会开个会议，最后形成一个开发文档&lt;br /&gt;
+ 2. 利用工具保证项目的正常进度，规范化&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;label danger&#34;&gt;❤️筱何仔&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="前端" />
+        <updated>2023-08-30T14:57:40.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.mengcodes.com/Web/2023/07/12/1/</id>
